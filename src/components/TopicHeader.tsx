@@ -1,0 +1,16 @@
+"use client";
+
+
+interface TopicHeaderProps {
+    title: string;
+}
+
+export function TopicHeader({ title }: TopicHeaderProps) {
+    return (
+      <div className="flex justify-center pt-24">
+            <h1 className="pb-4 text-6xl font-semibold text-primary border-b-2 border-foreground inline-block pl-28 pr-28">
+                {title}
+            </h1>
+      </div>
+    );
+  }
