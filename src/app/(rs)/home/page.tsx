@@ -1,5 +1,6 @@
 import { HomeComponenent } from '@/components/Home';
-import { ProjectComponents } from '@/components/Projects';
+import { ProjectComponent } from '@/components/Projects';
+import { WorkComponent } from '@/components/Work';
 
 export const metadata = {
     title: 'Home',
@@ -13,7 +14,11 @@ export default function Home() {
             </div>
             
             <div id="projects">
-                <ProjectComponents />
+                <ProjectComponent />
+            </div>
+
+            <div id="work">
+                <WorkComponent />
             </div>
         </div>
     )   

@@ -1,6 +1,5 @@
 "use client";
 
-
 import { LeftIntro } from '@/components/LeftIntro';
 import { RightIntro } from '@/components/RightIntro';
 import { FileText } from 'lucide-react';
@@ -24,8 +23,8 @@ export function HomeComponenent() {
                         {Array.from(word).map((letter, j) => (
                             <span 
                                 key={j} 
-                                onMouseOver={({ target }) => target.classList.add('jump')} 
-                                onAnimationEnd={({ target }) => target.classList.remove('jump')}
+                                onMouseOver={({ target }) => (target as HTMLElement).classList.add('jump')} 
+                                onAnimationEnd={({ target }) => (target as HTMLElement).classList.remove('jump')}
                                 className="inline-block"
                             >
                                 {letter}
@@ -37,14 +36,14 @@ export function HomeComponenent() {
             </h1>
 
             {/* Icon Buttons */}
-            <div className="flex justify-center gap-6 mt-6"> {/* Adjust gap and margin as needed */}
-                <Link href="https://github.com/your-username" target="_blank" className="flex flex-col items-center p-2">
-                    <img height={iconSize} width={iconSize} src="https://cdn.simpleicons.org/github" className="dark:filter dark:invert"/>
+            <div className="flex justify-center gap-6 mt-6">
+                <Link href="https://github.com/your-username" target="_blank" className="flex flex-col items-center p-2 hover:scale-125 ease-in-out duration-100">
+                    <img height={iconSize} width={iconSize} src="https://cdn.simpleicons.org/github" className="dark:filter dark:invert fill-primary text-primary"/>
                 </Link>
-                <Link href="https://linkedin.com/in/your-username" target="_blank" className="flex flex-col items-center p-2">
+                <Link href="https://linkedin.com/in/your-username" target="_blank" className="flex flex-col items-center p-2 hover:scale-125 ease-in-out duration-100">
                     <img height={iconSize} width={iconSize} src="https://cdn.simpleicons.org/linkedin/black" className="dark:filter dark:invert"/>
                 </Link>
-                <Link href="/path/to/your/resume.pdf" target="_blank" className="flex flex-col items-center p-2">
+                <Link href="/path/to/your/resume.pdf" target="_blank" className="flex flex-col items-center p-2 hover:scale-125 ease-in-out duration-100">
                     <FileText size={iconSize} />
                 </Link>
             </div>

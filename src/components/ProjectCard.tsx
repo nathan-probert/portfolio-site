@@ -1,4 +1,3 @@
-import { LucideIcon } from 'lucide-react';
 import { Button } from "@/components/ui/button"; // Ensure this path is correct based on your project structure
 import Link from "next/link";
 
@@ -25,7 +24,7 @@ export function ProjectCard({
     projectLink 
 }: Props) {
     return (
-        <div className="border rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
             <div className="flex items-center">
                 <img
                     src={logo}

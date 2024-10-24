@@ -12,13 +12,20 @@ body {
   --fg: #000000;
   --bg: #dbe1e8;
   --grey: #292929;
+  --grey2: #4d4d4d;
+  --grey3: #b2becd;
+  --grey4: #a7a7a7;
+  --link: #0000EE;
 }
 
 :root[class="dark"] {
   --fg: #FFFFFF;
   --bg: #141720;
   --grey: #9c9c9c;
-  --secondary: #f215fa;
+  --grey2: #b2becd;
+  --grey3: #212531;
+  --grey4: #696969;
+  --link: #3496ff;
 }
 
 @layer utilities {

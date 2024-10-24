@@ -46,7 +46,7 @@ export function LeftIntro() {
                 </p>
 
                 <p className="border-sd pt-8 text-center text-xxl leading-7 font-custom-mono tracking-wider">
-                    I'm pursuing a Bachelor's in
+                    I&apos;m pursuing a Bachelor&apos;s in
                     Computer Science Honours with a minor in
                     Business Economics at the University of Guelph. 
                     I enjoy working with AI 🤖, data analytics 🔍, and serverless design ☁️, leveraging AWS to develop innovative projects!

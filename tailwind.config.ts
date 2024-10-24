@@ -14,6 +14,10 @@ const config: Config = {
         foreground: "var(--fg)",
         primary: "#fa265b",
         grey: "var(--grey)",
+        grey2: "var(--grey2)",
+        grey3: "var(--grey3)",
+        grey4: "var(--grey4)",
+        link: "var(--link)",
         secondary: "#f215fa",
       },
       background: {

@@ -17,20 +17,9 @@ const projects = [
         githubLink: 'https://github.com/nathan-probert/smartScore',
         projectLink: '/smartscore'
     },
-    {
-        logo: '', // Replace with the actual icon you want to use for each project
-        title: 'Project 2',
-        description: 'Description of Project 2.',
-        technologies: [
-            { name: 'React', logo: '/logos/react.svg' },
-            { name: 'Node.js', logo: '/logos/nodejs.svg' }
-        ],
-        githubLink: 'https://github.com/example/project2',
-    },
-    // Add more projects as needed
 ];
 
-export function ProjectComponents() {
+export function ProjectComponent() {
     return (
         <div>
             <TopicHeader title="Projects" />
