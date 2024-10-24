@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Header } from "@/components/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = localFont({
@@ -39,7 +40,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <div className="mx-auto w-full max-w-7xl" id="top">
+              <Header />
+              {children}
+            </div>
           </ThemeProvider>
       </body>
     </html>
