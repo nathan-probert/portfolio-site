@@ -10,13 +10,11 @@ export const metadata = {
 }
 
 export function HomeComponenent() {
-
     const textArray = ["Hey,", "I'm", "Nathan", "Probert", "👋"];
     const iconSize = "48";
 
     return (
         <div>
-
             <h1 className="hidden sm:flex text-6xl font-bold justify-center mt-10">
                 {textArray.map((word, i) => (
                     <div key={i}>
@@ -48,17 +46,18 @@ export function HomeComponenent() {
                 </Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-24 pt-12">
+            {/* Layout for Left and Right Intro */}
+            <div className="pt-12 sm: pt-0 grid grid-cols-1 md:grid-cols-2 gap-8 align-center">
                 {/* Left half */}
-                <div className="flex justify-center items-center ml-auto pl-2">
+                <div className="flex justify-center items-center md:ml-auto pl-4 pr-4">
                     <LeftIntro />
                 </div>
 
                 {/* Right half */}
-                <div className="flex justify-left items-left">
+                <div className="flex justify-center items-center pl-4 pr-4 md:pr-20">
                     <RightIntro />
                 </div>
             </div>
         </div>
-    )   
+    );
 }
