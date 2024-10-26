@@ -5,8 +5,11 @@ import { SmartScoreModeToggle } from '../../components/SmartScoreModeToggle';
 import { Player } from '../../components/Types';
 import { CircleHelp } from 'lucide-react';
 
+const prod_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players';
+const dev_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players_dev';
+
 async function fetchPlayers(): Promise<Player[]> {
-  const res = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players');
+  const res = await fetch(process.env.NODE_ENV === 'production' ? prod_url : dev_url);
   if (!res.ok) {
     throw new Error('Failed to fetch players');
   }
