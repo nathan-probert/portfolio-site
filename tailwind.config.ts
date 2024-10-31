@@ -50,7 +50,7 @@ const config: Config = {
         'xxl': '1.375rem',
       },
       spacing: {
-        '26': '6.4rem',
+        '26': '5rem',
       }
     },
   },
