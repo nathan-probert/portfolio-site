@@ -47,8 +47,11 @@ const config: Config = {
         'custom-mono': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
       },
       fontSize: {
-        'xxl': '1.375rem', // Example size between xl and 2xl
+        'xxl': '1.375rem',
       },
+      spacing: {
+        '26': '6.4rem',
+      }
     },
   },
   plugins: [],
