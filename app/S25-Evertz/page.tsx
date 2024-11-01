@@ -94,7 +94,7 @@ export default function S25() {
               &emsp;I would like to express my gratitude to the team at Evertz Microsystems for providing me with the opportunity...
             </p>
           </section>
-          <Image
+          <img
             src="/images/evertz-building.jpg"
             alt="Evertz Building"
             width={800}
