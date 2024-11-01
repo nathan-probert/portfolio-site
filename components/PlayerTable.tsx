@@ -69,8 +69,12 @@ export function PlayerTable({ players, title }: PlayerTableProps) {
           </thead>
           <tbody>
             {players.map((player, index) => (
-              <tr key={player.id} className={`${index % 2 === 1 ? 'bg-grey3' : ''}`}>
-                <td className="sticky left-0 z-10 py-2 md:text-xl text-xs border border-grey2 text-center whitespace-nowrap bg-background">
+              <tr key={player.id} className={`${index % 2 === 1 ? 'bg-grey3' : 'bg-background'}`}>
+                <td
+                  className={`sticky left-0 z-10 py-2 md:text-xl text-xs border border-grey2 text-center whitespace-nowrap ${
+                    index % 2 === 1 ? 'bg-grey3' : 'bg-background'
+                  }`}
+                >
                   <a href={`https://www.nhl.com/player/${player.player_id}`} target="_blank" className="text-link hover:underline">
                     <span className="hidden md:inline">{player.name}</span>
                     <span className="md:hidden">
@@ -78,7 +82,11 @@ export function PlayerTable({ players, title }: PlayerTableProps) {
                     </span>
                   </a>
                 </td>
-                <td className="sticky left-26 z-10 px-2 py-2 md:text-xl text-sm border border-grey2 text-center bg-background">
+                <td
+                  className={`sticky left-26 z-10 px-2 py-2 md:text-xl text-sm border border-grey2 text-center ${
+                    index % 2 === 1 ? 'bg-grey3' : 'bg-background'
+                  }`}
+                >
                   {player.stat.toFixed(2)}
                 </td>
                 <td className="px-2 py-2 md:text-xl text-sm border border-grey2 text-center">{player.team_name}</td>
