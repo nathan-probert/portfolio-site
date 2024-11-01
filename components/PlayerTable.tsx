@@ -10,8 +10,10 @@ export function PlayerTable({ players, title }: PlayerTableProps) {
     return <div>No players found</div>;
   }
   
+  const lastCharacterId = title ? title.slice(-1) : "default-id";
+
   return (
-    <div className="my-4 pb-5">
+    <div className="pt-20" id={lastCharacterId}>
       <h1 className="text-center text-3xl md:text-4xl p-3">{title}</h1>
       <div className="md:overflow-visible overflow-x-auto">
         <table className="min-w-full table-auto border-spacing-0 border-separate">

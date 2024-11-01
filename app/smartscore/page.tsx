@@ -32,15 +32,21 @@ export default function PlayerTables() {
       try {
         setLoading(true);
         const data = await fetchPlayers();
-
+  
+        // Multiply each player's stat by 100
+        const updatedData = data.map(player => ({
+          ...player,
+          stat: player.stat * 100
+        }));
+  
         // Sort the entire array once by stat
-        const sortedAllPlayers = data.sort((a, b) => b.stat - a.stat);
-
+        const sortedAllPlayers = updatedData.sort((a, b) => b.stat - a.stat);
+  
         // Create the tims groups from the sorted array
         const tims1 = sortedAllPlayers.filter(player => player.tims === 1);
         const tims2 = sortedAllPlayers.filter(player => player.tims === 2);
         const tims3 = sortedAllPlayers.filter(player => player.tims === 3);
-
+  
         // Set the sorted players and tims groups in the state
         setSortedPlayers({ all: sortedAllPlayers, tims1, tims2, tims3 });
       } catch (error) {
@@ -50,7 +56,7 @@ export default function PlayerTables() {
       }
     };
     loadPlayers();
-  }, []);
+  }, []);  
 
   const handleToggleChange = () => {
     setShowAllPlayers(!showAllPlayers);
@@ -81,17 +87,16 @@ export default function PlayerTables() {
 
       </div>
 
-      <TopPicks
-        player1={sortedPlayers.all[0]}
-        player2={sortedPlayers.all[1]}
-        player3={sortedPlayers.all[2]}
-        title="Top Picks"
-      ></TopPicks>
-
       {showAllPlayers ? (
         <PlayerTable players={sortedPlayers.all} title="All Players" />
       ) : (
         <>
+          <TopPicks
+            player1={sortedPlayers.tims1[0]}
+            player2={sortedPlayers.tims2[0]}
+            player3={sortedPlayers.tims3[0]}
+            title="Top Picks"
+          ></TopPicks>
           <PlayerTable players={sortedPlayers.tims1} title="Tims Group 1" />
           <PlayerTable players={sortedPlayers.tims2} title="Tims Group 2" />
           <PlayerTable players={sortedPlayers.tims3} title="Tims Group 3" />
