@@ -72,11 +72,13 @@ export default function PlayerTables() {
         </div>
         <a className="absolute right-10 group inline-block" href="/smartscore/help">
           <CircleHelp className="mt-12" size="32" />
-          <span className="absolute top-12 right-12 bg-grey4 text-foreground text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+          <span className="absolute top-12 right-12 bg-grey4 text-foreground text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:inline">
             Need help?
             <span className="absolute top-1/2 right-[-14px] -translate-y-1/2 w-0 h-0 border-t-[12px] border-b-[12px] border-l-[12px] border-transparent border-l-grey4"></span>
           </span>
         </a>
+
+
       </div>
 
       <TopPicks
