@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   },
   description: "Nathan Probert's portfolio website",
   applicationName: "Nathan Probert",
+  icons: {
+    icon: './images/favicon.ico',
+    apple: './images/favicon.ico',
+    shortcut: './images/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -40,7 +45,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="mx-auto w-full max-w-7xl" id="top">
+            <div className="w-full sm:w-full md:max-w-[70%] lg:max-w-7xl mx-auto px-4" id="top">
               <Header />
               {children}
             </div>

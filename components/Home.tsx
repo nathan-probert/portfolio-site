@@ -10,13 +10,11 @@ export const metadata = {
 }
 
 export function HomeComponenent() {
-
     const textArray = ["Hey,", "I'm", "Nathan", "Probert", "👋"];
     const iconSize = "48";
 
     return (
         <div>
-
             <h1 className="hidden sm:flex text-6xl font-bold justify-center mt-10">
                 {textArray.map((word, i) => (
                     <div key={i}>
@@ -37,28 +35,29 @@ export function HomeComponenent() {
 
             {/* Icon Buttons */}
             <div className="flex justify-center gap-6 mt-6">
-                <Link href="https://github.com/your-username" target="_blank" className="flex flex-col items-center p-2 hover:scale-125 ease-in-out duration-100">
+                <Link href="https://github.com/nathan-probert" target="_blank" className="flex flex-col items-center p-2 hover:scale-125 ease-in-out duration-100">
                     <img height={iconSize} width={iconSize} src="https://cdn.simpleicons.org/github" className="dark:filter dark:invert fill-primary text-primary"/>
                 </Link>
-                <Link href="https://linkedin.com/in/your-username" target="_blank" className="flex flex-col items-center p-2 hover:scale-125 ease-in-out duration-100">
+                <Link href="https://www.linkedin.com/in/nathan-probert-197463275/" target="_blank" className="flex flex-col items-center p-2 hover:scale-125 ease-in-out duration-100">
                     <img height={iconSize} width={iconSize} src="https://cdn.simpleicons.org/linkedin/black" className="dark:filter dark:invert"/>
                 </Link>
-                <Link href="/path/to/your/resume.pdf" target="_blank" className="flex flex-col items-center p-2 hover:scale-125 ease-in-out duration-100">
+                <Link href="/Nathan_Probert_Resume.pdf" target="_blank" className="flex flex-col items-center p-2 hover:scale-125 ease-in-out duration-100">
                     <FileText size={iconSize} />
                 </Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-24 pt-12">
+            {/* Layout for Left and Right Intro */}
+            <div className="pt-12 sm: pt-0 grid grid-cols-1 md:grid-cols-2 gap-8 align-center">
                 {/* Left half */}
-                <div className="flex justify-center items-center ml-auto pl-2">
+                <div className="flex justify-center items-center md:ml-auto pl-4 pr-4">
                     <LeftIntro />
                 </div>
 
                 {/* Right half */}
-                <div className="flex justify-left items-left">
+                <div className="flex justify-center items-center pl-4 pr-4 md:pr-20">
                     <RightIntro />
                 </div>
             </div>
         </div>
-    )   
+    );
 }

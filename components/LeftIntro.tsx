@@ -49,7 +49,7 @@ export function LeftIntro() {
                     I&apos;m pursuing a Bachelor&apos;s in
                     Computer Science Honours with a minor in
                     Business Economics at the University of Guelph. 
-                    I enjoy working with AI 🤖, data analytics 🔍, and serverless design ☁️, leveraging AWS to develop innovative projects!
+                    I enjoy working with AI 🤖, data analytics 🔍, and serverless design ☁️, leveraging these tools to develop innovative projects!
                 </p>
 
 

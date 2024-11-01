@@ -4,9 +4,13 @@ import { PlayerTable } from '../../components/PlayerTable';
 import { SmartScoreModeToggle } from '../../components/SmartScoreModeToggle';
 import { Player } from '../../components/Types';
 import { CircleHelp } from 'lucide-react';
+import { TopPicks } from '../../components/TopPicks';
+
+const prod_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players';
+const dev_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players_dev';
 
 async function fetchPlayers(): Promise<Player[]> {
-  const res = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players');
+  const res = await fetch(process.env.NODE_ENV === 'production' ? prod_url : dev_url);
   if (!res.ok) {
     throw new Error('Failed to fetch players');
   }
@@ -28,15 +32,21 @@ export default function PlayerTables() {
       try {
         setLoading(true);
         const data = await fetchPlayers();
-
+  
+        // Multiply each player's stat by 100
+        const updatedData = data.map(player => ({
+          ...player,
+          stat: player.stat * 100
+        }));
+  
         // Sort the entire array once by stat
-        const sortedAllPlayers = data.sort((a, b) => b.stat - a.stat);
-
+        const sortedAllPlayers = updatedData.sort((a, b) => b.stat - a.stat);
+  
         // Create the tims groups from the sorted array
         const tims1 = sortedAllPlayers.filter(player => player.tims === 1);
         const tims2 = sortedAllPlayers.filter(player => player.tims === 2);
         const tims3 = sortedAllPlayers.filter(player => player.tims === 3);
-
+  
         // Set the sorted players and tims groups in the state
         setSortedPlayers({ all: sortedAllPlayers, tims1, tims2, tims3 });
       } catch (error) {
@@ -46,7 +56,7 @@ export default function PlayerTables() {
       }
     };
     loadPlayers();
-  }, []);
+  }, []);  
 
   const handleToggleChange = () => {
     setShowAllPlayers(!showAllPlayers);
@@ -68,16 +78,25 @@ export default function PlayerTables() {
         </div>
         <a className="absolute right-10 group inline-block" href="/smartscore/help">
           <CircleHelp className="mt-12" size="32" />
-          <span className="absolute top-12 right-12 bg-grey4 text-foreground text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+          <span className="absolute top-12 right-12 bg-grey4 text-foreground text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:inline">
             Need help?
             <span className="absolute top-1/2 right-[-14px] -translate-y-1/2 w-0 h-0 border-t-[12px] border-b-[12px] border-l-[12px] border-transparent border-l-grey4"></span>
           </span>
         </a>
+
+
       </div>
+
       {showAllPlayers ? (
         <PlayerTable players={sortedPlayers.all} title="All Players" />
       ) : (
         <>
+          <TopPicks
+            player1={sortedPlayers.tims1[0]}
+            player2={sortedPlayers.tims2[0]}
+            player3={sortedPlayers.tims3[0]}
+            title="Top Picks"
+          ></TopPicks>
           <PlayerTable players={sortedPlayers.tims1} title="Tims Group 1" />
           <PlayerTable players={sortedPlayers.tims2} title="Tims Group 2" />
           <PlayerTable players={sortedPlayers.tims3} title="Tims Group 3" />
