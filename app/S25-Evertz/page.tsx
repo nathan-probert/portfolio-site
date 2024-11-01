@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 export const metadata = {
     title: 'S25 - Evertz',
 }
