@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   },
   description: "Nathan Probert's portfolio website",
   applicationName: "Nathan Probert",
+  icons: {
+    icon: './images/favicon.ico',
+    apple: './images/favicon.ico',
+    shortcut: './images/favicon.ico',
+  },
 };
 
 export default function RootLayout({

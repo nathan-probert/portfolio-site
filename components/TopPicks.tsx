@@ -36,7 +36,12 @@ export function TopPicks({ player1, player2, player3, title }: PlayerTableProps)
                     {index + 1}
                   </Link>
                 </td>
-                <td className="px-2 py-1 border border-foreground text-center">{player.name}</td>
+                <td className="px-2 py-1 border border-foreground text-center">
+                    <span className="hidden md:inline">{player.name}</span>
+                    <span className="md:hidden">
+                      {`${player.name.split(' ')[0][0]}. ${player.name.split(' ').slice(-1)}`}
+                    </span>
+                </td>
                 <td className="px-2 py-1 border border-foreground text-center">{player.stat.toFixed(2)}</td>
                 <td className="px-2 py-1 border border-foreground text-center">{player.team_name}</td>
               </tr>
