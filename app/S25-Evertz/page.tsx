@@ -7,7 +7,7 @@ export const metadata = {
 export default function S25() {
     return (
         <div className="max-w-4xl mx-auto my-3 p-8 relative">
-          <Image
+          <img
             src="/images/evertz.png"
             alt="Evertz Logo"
             width={100}
@@ -42,7 +42,7 @@ export default function S25() {
               and more.
             </p>
             <br />
-            <Image
+            <img
               src="/images/coop-image.jpeg"
               alt="Co-op experience"
               width={800}
@@ -94,7 +94,7 @@ export default function S25() {
               &emsp;I would like to express my gratitude to the team at Evertz Microsystems for providing me with the opportunity...
             </p>
           </section>
-          <Image
+          <img
             src="/images/evertz-building.jpg"
             alt="Evertz Building"
             width={800}
