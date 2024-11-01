@@ -4,6 +4,7 @@ import { PlayerTable } from '../../components/PlayerTable';
 import { SmartScoreModeToggle } from '../../components/SmartScoreModeToggle';
 import { Player } from '../../components/Types';
 import { CircleHelp } from 'lucide-react';
+import { TopPicks } from '../../components/TopPicks';
 
 const prod_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players';
 const dev_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players_dev';
@@ -77,6 +78,14 @@ export default function PlayerTables() {
           </span>
         </a>
       </div>
+
+      <TopPicks
+        player1={sortedPlayers.all[0]}
+        player2={sortedPlayers.all[1]}
+        player3={sortedPlayers.all[2]}
+        title="Top Picks"
+      ></TopPicks>
+
       {showAllPlayers ? (
         <PlayerTable players={sortedPlayers.all} title="All Players" />
       ) : (
