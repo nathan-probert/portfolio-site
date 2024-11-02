@@ -82,15 +82,12 @@ export default function S25() {
               <p className="ml-6">
                 &emsp;Although the title is general, one of my main goals is simply developing better problem solving skills. Evertz is my first professional programming job, and the first time I am working on a code base that is not my own. I wanted to reach a level where I can be assigned a task or discover a bug, then create and implement a solution without any assistance.<br /><br />
                 &emsp;Throughout my work term, I gained more and more confidence working with the code base and understanding how all the different microservices worked together. I was able to effectively troubleshoot any bugs, and I could generally complete tasks without assistance.<br /><br /> 
-                &emsp;Although the title is general, one of my main goals is simply developing better problem solving skills. Evertz is my first professional programming job, and the first time I am working on a code base that is not my own. I wanted to reach a level where I can be assigned a task or discover a bug, then create and implement a solution without any assistance.<br /><br />
-                &emsp;Throughout my work term, I gained more and more confidence working with the code base and understanding how all the different microservices worked together. I was able to effectively troubleshoot any bugs, and I could generally complete tasks without assistance.<br /><br /> 
               </p>
             </div>
           </section>
           <section className="mb-6">
             <h2 className="text-2xl font-semibold mb-4 text-grey2 pb-1 border-b border-grey2">Conclusion</h2>
             <p className="">
-              &emsp;Overall, this work term helped me refine my technical skills and deepen my understanding of industry-standard tools including AWS, Git, and Postman. More importantly, as my first professional work experience, I was able to see a side of software engineering that I had not experienced before. I am grateful for the guidance and support of my colleagues at Evertz, who provided valuable mentorship and helped me grow as a developer. I look forward to applying the knowledge and skills I gained during this work term to future projects and opportunities.
               &emsp;Overall, this work term helped me refine my technical skills and deepen my understanding of industry-standard tools including AWS, Git, and Postman. More importantly, as my first professional work experience, I was able to see a side of software engineering that I had not experienced before. I am grateful for the guidance and support of my colleagues at Evertz, who provided valuable mentorship and helped me grow as a developer. I look forward to applying the knowledge and skills I gained during this work term to future projects and opportunities.
             </p>
           </section>
