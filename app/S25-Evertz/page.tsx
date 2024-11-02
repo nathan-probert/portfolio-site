@@ -70,16 +70,18 @@ export default function S25() {
               </p>
               <h3 className="font-semibold">&emsp;-&emsp;Further my understanding of the services Git offers</h3>
               <p className="ml-6 mb-4">
-                &emsp;Git is a well-known control system that is used by many companies. While I have used Git before for school and personal use, I've never been able to use Git to its full potential. As I use GitHub at Evertz, I made it a goal of mine to develop a better understanding by attending Git seminars hosted by Evertz.<br /><br />
+                &emsp;Git is a well-known control system that is used by many companies. While I have used Git before for school and personal use, I&apos;ve never been able to use Git to its full potential. As I use GitHub at Evertz, I made it a goal of mine to develop a better understanding by attending Git seminars hosted by Evertz.<br /><br />
                 &emsp;I feel much more comfortable now navigating branches, pull requests, and handling merge conflicts, none of which I was able to do before my time at Evertz. This is an extremely essential skill as it is something I would be expected to know going forward, and is also very important in managing my own projects.<br /><br /> 
               </p>
               <h3 className="font-semibold">&emsp;-&emsp;Learn about working with APIs and Postman effectively</h3>
               <p className="ml-6 mb-4">
-                &emsp;API's (and Websockets) are arguably the backbone of backend services. I had very little experience with API's and none with Postman going in, so I felt it was important to learn about these technologies.<br /><br />
+                &emsp;API&apos;s (and Websockets) are arguably the backbone of backend services. I had very little experience with API&apos;s and none with Postman going in, so I felt it was important to learn about these technologies.<br /><br />
                 &emsp;To achieve this, I strived towards understanding every request and response I made through Postman, and understanding exactly how the request is parsed in the code. I reached a point where I was able to add new endpoints to both the API and Websocket, and effectively accept requests, perform tasks, and send meaningful responses.<br /><br /> 
               </p>
               <h3 className="font-semibold">&emsp;-&emsp;Improve my problem-solving skills</h3>
               <p className="ml-6">
+                &emsp;Although the title is general, one of my main goals is simply developing better problem solving skills. Evertz is my first professional programming job, and the first time I am working on a code base that is not my own. I wanted to reach a level where I can be assigned a task or discover a bug, then create and implement a solution without any assistance.<br /><br />
+                &emsp;Throughout my work term, I gained more and more confidence working with the code base and understanding how all the different microservices worked together. I was able to effectively troubleshoot any bugs, and I could generally complete tasks without assistance.<br /><br /> 
                 &emsp;Although the title is general, one of my main goals is simply developing better problem solving skills. Evertz is my first professional programming job, and the first time I am working on a code base that is not my own. I wanted to reach a level where I can be assigned a task or discover a bug, then create and implement a solution without any assistance.<br /><br />
                 &emsp;Throughout my work term, I gained more and more confidence working with the code base and understanding how all the different microservices worked together. I was able to effectively troubleshoot any bugs, and I could generally complete tasks without assistance.<br /><br /> 
               </p>
@@ -89,12 +91,13 @@ export default function S25() {
             <h2 className="text-2xl font-semibold mb-4 text-grey2 pb-1 border-b border-grey2">Conclusion</h2>
             <p className="">
               &emsp;Overall, this work term helped me refine my technical skills and deepen my understanding of industry-standard tools including AWS, Git, and Postman. More importantly, as my first professional work experience, I was able to see a side of software engineering that I had not experienced before. I am grateful for the guidance and support of my colleagues at Evertz, who provided valuable mentorship and helped me grow as a developer. I look forward to applying the knowledge and skills I gained during this work term to future projects and opportunities.
+              &emsp;Overall, this work term helped me refine my technical skills and deepen my understanding of industry-standard tools including AWS, Git, and Postman. More importantly, as my first professional work experience, I was able to see a side of software engineering that I had not experienced before. I am grateful for the guidance and support of my colleagues at Evertz, who provided valuable mentorship and helped me grow as a developer. I look forward to applying the knowledge and skills I gained during this work term to future projects and opportunities.
             </p>
           </section>
           <section className="mb-6">
             <h2 className="text-2xl font-semibold mb-4 text-grey2 pb-1 border-b border-grey2">Acknowledgements</h2>
             <p className="">
-              &emsp;I would like to express my gratitude to the team at Evertz Microsystems for providing me with the opportunity, and all members of my team, who were very helpful and forthcoming. I'd like to specifically thank Stephen Hazra and Abu Saeed for their mentorship and guidance throughout my work term.<br /><br />
+              &emsp;I would like to express my gratitude to the team at Evertz Microsystems for providing me with the opportunity, and all members of my team, who were very helpful and forthcoming. I&apos;d like to specifically thank Stephen Hazra and Abu Saeed for their mentorship and guidance throughout my work term.<br /><br />
               &emsp;I could not have asked for a better team to work with, and I am grateful for the experience and knowledge I gained during my time at Evertz! 
             </p>
           </section>
