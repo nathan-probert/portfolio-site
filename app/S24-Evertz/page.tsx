@@ -1,9 +1,9 @@
 
 export const metadata = {
-    title: 'S25 - Evertz',
+    title: 'S24 - Evertz',
 }
 
-export default function S25() {
+export default function S24() {
     return (
         <div className="max-w-4xl mx-auto my-3 p-8 relative">
           <img
