@@ -4,6 +4,3 @@
 
 [build.environment]
   NODE_VERSION = "22.13.0"
-
-[[plugins]]
-  package = "@opennextjs/netlify"
