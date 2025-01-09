@@ -10,7 +10,7 @@ const workExperiences = [
         title: 'Software Developer Intern',
         focus: 'Cloud Infrastructure & Architecture',
         description: 'Leveraged AWS services to build scalable and secure cloud infrastructure for new products and features.',
-        blogLink: '/S25-Evertz',
+        blogLink: '/S24-Evertz',
     },
 ];
 
