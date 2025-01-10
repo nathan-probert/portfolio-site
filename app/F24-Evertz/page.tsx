@@ -41,7 +41,7 @@ export default function F24() {
             <br />
             <img
               src="/images/christmas_party_sign.jpg"
-              alt="Co-op experiencepicture"
+              alt="Co-op experience picture"
               width={800}
               height={500}
               className="w-full h-auto"
@@ -66,8 +66,7 @@ export default function F24() {
                 communication styles from peers and supervisors. Speak up in stand ups and other meetings.
                 <br />
                 <br />
-                &emsp;	
-                To enhance my collaboration skills and effectively communicate within cross functional teams, I made a noticeable 
+                &emsp;To enhance my collaboration skills and effectively communicate within cross functional teams, I made a noticeable 
                 effort to contribute more during the planning phase of new projects. At the start of the term, I had no trouble 
                 discussing my own work and asking questions surrounding that, but I found myself failing to follow and effectively 
                 contribute to higher level discussions about the feature as a whole. Thankfully, I found myself with excellent 
@@ -84,21 +83,19 @@ export default function F24() {
               </p>
               <h3 className="font-semibold">&emsp;-&emsp;Goal 2</h3>
               <p className="ml-6 mb-4">
-                &emsp;	
-                Attend industry events, webinars, or workshops organized by Evertz. Schedule calls with colleagues to learn about 
+                &emsp;Attend industry events, webinars, or workshops organized by Evertz. Schedule calls with colleagues to learn about 
                 their roles and experiences. Connect with coworkers on professional platforms (e.g. LinkedIn).
                 <br />
                 <br />
-                &emsp;	
-                One of my goals was to establish a professional network within Evertz, and to maintain this rapport throughout my 
+                &emsp;One of my goals was to establish a professional network within Evertz, and to maintain this rapport throughout my 
                 term at Evertz and after as well. To accomplish this, I connected with many of my coworkers on LinkedIn so that 
                 I could stay in touch with them. Additionally, I had coffee chats with some members of my team that I was closer 
                 with, and asked about their experience with both Evertz and in general. These proved to be very informative, and
-                 helped me connect better with my coworkers. I also used a group chat of co-op students to connect with them as well. 
-                 One measure of success for me was to attend a co-op event, and while it was difficult for me as events were in 
-                 Burlington (I work hybrid out of Toronto), I attended the Christmas party at the end of my term. This was an 
-                 excellent opportunity for me to build in-person connections with my team, co-ops, and other people that I work 
-                 with who aren&apos;t directly on my team.
+                helped me connect better with my coworkers. I also used a group chat of co-op students to connect with them as well. 
+                One measure of success for me was to attend a co-op event, and while it was difficult for me as events were in 
+                Burlington (I work hybrid out of Toronto), I attended the Christmas party at the end of my term. This was an 
+                excellent opportunity for me to build in-person connections with my team, co-ops, and other people that I work 
+                with who aren&apos;t directly on my team.
                 <br />
                 <br /> 
               </p>
@@ -123,10 +120,10 @@ export default function F24() {
             <h2 className="text-2xl font-semibold mb-4 text-grey2 pb-1 border-b border-grey2">Conclusion</h2>
             <p className="">
               &emsp;My co-op term at Evertz was a great learning experience. I explored backend cloud development, worked
-               extensively with AWS, and tackled several exciting projects. During this time, I honed my communication and
-               collaboration skills, particularly in team discussions and code reviews. I also built strong connections with my coworkers, 
-               which made the experience even better. Overall, this term provided me with a strong foundation in cloud computing and
-               deepened my enthusiasm for a career in tech.
+              extensively with AWS, and tackled several exciting projects. During this time, I honed my communication and
+              collaboration skills, particularly in team discussions and code reviews. I also built strong connections with my coworkers, 
+              which made the experience even better. Overall, this term provided me with a strong foundation in cloud computing and
+              deepened my enthusiasm for a career in tech.
             </p>
           </section>
           <section className="mb-6">
