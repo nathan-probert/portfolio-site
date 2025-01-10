@@ -21,8 +21,8 @@ export default function F24() {
             <h2 className="text-2xl font-semibold mb-4 text-grey2 pb-1 border-b border-grey2">Introduction</h2>
             <p className="">
               &emsp;From May to December 2024, I served as a Software Developer Intern at Evertz Microsystems Ltd. in Burlington,
-               Ontario. This report offers an overview of the organization, highlights my personal learning goals, and details 
-               my responsibilities and accomplishments during the second half of my work term, September to December.
+               Ontario. This report provides an overview of the organization, outlines my learning goals, and highlights my 
+               responsibilities and accomplishments during the second half of my work term (September to December).
             </p>
           </section>
           <section className="mb-6">
@@ -34,9 +34,8 @@ export default function F24() {
               <br />
               <br />
               &emsp;Evertz.io is a Software as a Service platform that allows cloud video services for
-              content owners and creators. This service fully manages platform maintenance, backend
-              engineering, and cloud scaling, allowing customers to focus their resources entirely on
-              operations. They work with companies such as Disney, Warner Bros, NBC, HBO, Paramount,
+              content owners and creators. This service handles platform maintenance, backend engineering, and cloud scaling, 
+              enabling customers to focus solely on operations. They work with companies such as Disney, Warner Bros, NBC, HBO, Paramount,
               and more.
             </p>
             <br />
@@ -52,9 +51,9 @@ export default function F24() {
             <h2 className="text-2xl font-semibold mb-4 text-grey2 pb-1 border-b border-grey2">Job Description</h2>
             <p className="">
               &emsp;In my role at Evertz, I worked mainly as a backend cloud developer, focusing on tasks involving AWS services,
-               parallel processing, and websocket communication. Many of the skills I used throughout my work term were developed 
-              on the job, rather than at school. However, I was able to apply the idea behind many of the concepts I learned in my
-              courses to my work at Evertz. I was provided with the opportunity to work on many unqiue projects, allowing me to learn
+               parallel processing, and websocket communication. Most of the skills I used during my work term were developed on the 
+               job rather than at school. However, I was able to apply the idea behind many of the concepts I learned in my
+              courses to my work at Evertz. I was provided with the opportunity to work on many unique projects, allowing me to learn
               new skills and technologies.
             </p>
           </section>
@@ -78,7 +77,7 @@ export default function F24() {
                 near the end of my term two other members of my team began to attend in-office, allowing me to hold discussions 
                 with them about different ideas and approaches for the projects. In summary, I was able to get lots of practice 
                 with my collaboration skills and discussing high-level approaches in meetings. I received positive feedback from 
-                coworkers, and the deeper understanding allowed me to better work on my individual PR&apos;s as I knew how it should 
+                coworkers, and the deeper understanding allowed me to better work on my individual PRs as I knew how it should 
                 interact with other parts of the project.
                 <br />
                 <br /> 
@@ -92,14 +91,14 @@ export default function F24() {
                 <br />
                 &emsp;	
                 One of my goals was to establish a professional network within Evertz, and to maintain this rapport throughout my 
-                term at Evertz and after as well. To accomplish this, I connected with many of my coworkers on Linkedin so that 
+                term at Evertz and after as well. To accomplish this, I connected with many of my coworkers on LinkedIn so that 
                 I could stay in touch with them. Additionally, I had coffee chats with some members of my team that I was closer 
                 with, and asked about their experience with both Evertz and in general. These proved to be very informative, and
                  helped me connect better with my coworkers. I also used a group chat of co-op students to connect with them as well. 
                  One measure of success for me was to attend a co-op event, and while it was difficult for me as events were in 
                  Burlington (I work hybrid out of Toronto), I attended the Christmas party at the end of my term. This was an 
                  excellent opportunity for me to build in-person connections with my team, co-ops, and other people that I work 
-                 with who aren&apos;t directly on my team. I managed to connect with a few more people on Linkedin from that experience. 
+                 with who aren&apos;t directly on my team.
                 <br />
                 <br /> 
               </p>
@@ -109,7 +108,7 @@ export default function F24() {
                 <br />
                 <br />
                 &emsp;Another one of my goals was to enhance my leadership abilities, something that will be invaluable if I am 
-                hoping to have my own team one day. To do this I wanted to actively review my coworkers&apos; PR&apos;s, particularly with 
+                hoping to have my own team one day. To do this I wanted to actively review my coworkers&apos; PRs, particularly with 
                 the goal of pointing out better approaches or solutions (rather than low impact fixes like removing print statements 
                 etc.). To achieve this, I set a schedule for myself where I did code review for a specific amount of time each day. 
                 This dedicated amount of time allowed me to write meaningful reviews and spark conversations around the way solutions 
@@ -123,11 +122,11 @@ export default function F24() {
           <section className="mb-6">
             <h2 className="text-2xl font-semibold mb-4 text-grey2 pb-1 border-b border-grey2">Conclusion</h2>
             <p className="">
-              &emsp;My co-op term at Evertz was a great learning experience. I got to dive into backend cloud development, 
-              work with AWS, and tackle some pretty cool projects. Along the way, I improved my communication and collaboration
-               skills, especially during team discussions and code reviews. I also built strong connections with my coworkers, 
-               which made the experience even better. Overall, this term gave me a solid foundation in cloud computing and 
-               reinforced my excitement for working in tech.
+              &emsp;My co-op term at Evertz was a great learning experience. I explored backend cloud development, worked
+               extensively with AWS, and tackled several exciting projects. During this time, I honed my communication and
+               collaboration skills, particularly in team discussions and code reviews. I also built strong connections with my coworkers, 
+               which made the experience even better. Overall, this term provided me with a strong foundation in cloud computing and
+               deepened my enthusiasm for a career in tech.
             </p>
           </section>
           <section className="mb-6">
