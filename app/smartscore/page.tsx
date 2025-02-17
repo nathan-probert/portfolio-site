@@ -32,8 +32,8 @@ export default function PlayerTables() {
       try {
         setLoading(true);
         const data = await fetchPlayers();
-  
-        // Multiply each player's stat by 100
+
+        // Multiply each player's stat by 100%
         const updatedData = data.map(player => ({
           ...player,
           stat: player.stat * 100
@@ -66,6 +66,14 @@ export default function PlayerTables() {
     return (
       <div className="flex justify-center items-center h-screen">
         <img src="/images/loading.gif" alt="Loading..." className="w-16 h-16" />
+      </div>
+    );
+  }
+
+  if (sortedPlayers.all.length === 0) {
+    return (
+      <div className="flex justify-center items-center px-4 text-center">
+        <p className="text-2xl md:text-5xl font-bold mt-20">No games today, check back tomorrow!</p>
       </div>
     );
   }
