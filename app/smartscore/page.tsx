@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { PlayerTable } from '../../components/PlayerTable';
 import { SmartScoreModeToggle } from '../../components/SmartScoreModeToggle';
-import { ModeToggle } from '../../components/ModeToggle';
 import { Player } from '../../components/Types';
 import { CircleHelp } from 'lucide-react';
 import { TopPicks } from '../../components/TopPicks';
@@ -46,15 +45,15 @@ export default function PlayerTables() {
           ...player,
           stat: player.stat * 100
         }));
-  
+
         // Sort the entire array once by stat
         const sortedAllPlayers = updatedData.sort((a, b) => b.stat - a.stat);
-  
+
         // Create the tims groups from the sorted array
         const tims1 = sortedAllPlayers.filter(player => player.tims === 1);
         const tims2 = sortedAllPlayers.filter(player => player.tims === 2);
         const tims3 = sortedAllPlayers.filter(player => player.tims === 3);
-  
+
         // Set the sorted players and tims groups in the state
         setSortedPlayers({ all: sortedAllPlayers, tims1, tims2, tims3 });
       } catch (error) {
@@ -64,7 +63,7 @@ export default function PlayerTables() {
       }
     };
     loadPlayers();
-  }, []);  
+  }, []);
 
   const handleToggleChange = () => {
     setShowAllPlayers(!showAllPlayers);
@@ -87,15 +86,15 @@ export default function PlayerTables() {
   }
 
   // Calculate the overall percentage for the pie chart
-  const totalPercentage = sortedPlayers.tims1[0]?.stat + sortedPlayers.tims2[0]?.stat + sortedPlayers.tims3[0]?.stat 
+  const totalPercentage = sortedPlayers.tims1[0]?.stat + sortedPlayers.tims2[0]?.stat + sortedPlayers.tims3[0]?.stat
     - (sortedPlayers.tims1[0]?.stat * sortedPlayers.tims2[0]?.stat / 100)
     - (sortedPlayers.tims1[0]?.stat * sortedPlayers.tims3[0]?.stat / 100)
     - (sortedPlayers.tims2[0]?.stat * sortedPlayers.tims3[0]?.stat / 100)
     + (sortedPlayers.tims1[0]?.stat * sortedPlayers.tims2[0]?.stat * sortedPlayers.tims3[0]?.stat / 10000);
-  
+
   const chartData = {
     labels: [
-      `Percentage Someone Scores (${totalPercentage.toFixed(2)}%)`, 
+      `Percentage Someone Scores (${totalPercentage.toFixed(2)}%)`,
       `Percentage No One Scores (${(100 - totalPercentage).toFixed(2)}%)`
     ],
     datasets: [{
@@ -105,7 +104,7 @@ export default function PlayerTables() {
       borderWidth: 1,
     }],
   };
-  
+
   const chartOptions = {
     plugins: {
       legend: {
@@ -135,7 +134,7 @@ export default function PlayerTables() {
     cutout: '60%',
     rotation: 180,
   };
-  
+
   return (
     <div>
       <div className="flex justify-center items-center mt-10 my-4 pb-8 mb-16 relative">
