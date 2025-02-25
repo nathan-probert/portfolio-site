@@ -1,6 +1,4 @@
 "use client";
-
-import '../globals.css';
 import { useState, useEffect } from 'react';
 import { PlayerTable } from '../../components/PlayerTable';
 import { SmartScoreModeToggle } from '../../components/SmartScoreModeToggle';
@@ -92,10 +90,10 @@ export default function PlayerTables() {
     + (sortedPlayers.tims1[0]?.stat * sortedPlayers.tims2[0]?.stat * sortedPlayers.tims3[0]?.stat / 10000);
   
   const chartData = {
-    labels: ['Percentage Someone Scores', 'Percentage No One Scores'], // Keep the same order for labels
+    labels: ['Percentage Someone Scores', 'Percentage No One Scores'],
     datasets: [{
-      data: [totalPercentage, 100 - totalPercentage], // Keep the data in the correct order
-      backgroundColor: ['#fa265b', '#666666'], // Adjust the colors accordingly
+      data: [totalPercentage, 100 - totalPercentage],
+      backgroundColor: ['#fa265b', '#666666'],
       borderColor: '#404040',
       borderWidth: 1,
     }],
@@ -105,10 +103,10 @@ export default function PlayerTables() {
     plugins: {
       legend: {
         labels: {
-          color: '#666666', // Set the color of the legend labels
+          color: '#666666',
           font: {
-            size: 18, // Increase font size for legend labels
-            weight: 'bold', // Make the legend labels bold
+            size: 18,
+            weight: 'bold',
           },
         },
       },
@@ -124,11 +122,11 @@ export default function PlayerTables() {
     maintainAspectRatio: false,
     elements: {
       arc: {
-        borderWidth: 1, // This defines the border width of each segment
+        borderWidth: 1,
       },
     },
-    cutout: '60%', // To make it look more like a doughnut (optional)
-    rotation: 180, // This will rotate the chart to align it top-bottom
+    cutout: '60%',
+    rotation: 180,
   };
   
   return (
@@ -157,9 +155,9 @@ export default function PlayerTables() {
             title="Top Picks"
           ></TopPicks>
           <div className="flex justify-center mb-8">
-          <div className="w-full md:w-1/3" style={{ height: '300px', position: 'relative' }}>
-            <Pie data={chartData} options={chartOptions} />
-          </div>
+            <div className="w-full md:w-1/3" style={{ height: '300px', position: 'relative' }}>
+              <Pie data={chartData} options={chartOptions} />
+            </div>
           </div>
           <PlayerTable players={sortedPlayers.tims1} title="Tims Group 1" />
           <PlayerTable players={sortedPlayers.tims2} title="Tims Group 2" />
