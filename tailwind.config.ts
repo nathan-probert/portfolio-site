@@ -44,7 +44,7 @@ const config: Config = {
         "slide": "slide 750ms ease-in-out",
       },
       fontFamily: {
-        'custom-mono': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace', 'poppins'],
+        'custom-mono': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
       },
       fontSize: {
         'xxl': '1.375rem',
