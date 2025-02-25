@@ -25,7 +25,7 @@ export function PlayerTable({ players, title }: PlayerTableProps) {
                   Player Name
                 </span>
               </th>
-              <th className="cursor-default sticky left-26 z-10 bg-grey3 text-md md:text-2xl text-grey2 px-0 py-2 border border-grey2 group">
+              <th className="cursor-default sticky left-[20%] z-10 bg-grey3 text-md md:text-2xl text-grey2 px-0 py-2 border border-grey2 group">
                 %
                 <span className="invisible group-hover:visible absolute bg-black text-white text-sm p-2 rounded-lg -top-12 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
                   Probability of scoring today
@@ -73,9 +73,7 @@ export function PlayerTable({ players, title }: PlayerTableProps) {
             {players.map((player, index) => (
               <tr key={player.id} className={`${index % 2 === 1 ? 'bg-grey3' : 'bg-background'}`}>
                 <td
-                  className={`sticky left-0 z-10 py-2 md:text-xl text-xs border border-grey2 text-center whitespace-nowrap ${
-                    index % 2 === 1 ? 'bg-grey3' : 'bg-background'
-                  }`}
+                  className={`sticky left-0 z-10 py-2 md:text-xl text-xs border border-grey2 text-center whitespace-nowrap ${index % 2 === 1 ? 'bg-grey3' : 'bg-background'}`}
                 >
                   <a href={`https://www.nhl.com/player/${player.player_id}`} target="_blank" className="text-link hover:underline">
                     <span className="hidden md:inline">{player.name}</span>
@@ -85,9 +83,7 @@ export function PlayerTable({ players, title }: PlayerTableProps) {
                   </a>
                 </td>
                 <td
-                  className={`sticky left-26 z-10 px-2 py-2 md:text-xl text-sm border border-grey2 text-center ${
-                    index % 2 === 1 ? 'bg-grey3' : 'bg-background'
-                  }`}
+                  className={`sticky left-[20%] z-10 px-2 py-2 md:text-xl text-sm border border-grey2 text-center ${index % 2 === 1 ? 'bg-grey3' : 'bg-background'}`}
                 >
                   {player.stat.toFixed(2)}
                 </td>

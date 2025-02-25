@@ -1,10 +1,16 @@
 "use client";
+
+import '../globals.css';
 import { useState, useEffect } from 'react';
 import { PlayerTable } from '../../components/PlayerTable';
 import { SmartScoreModeToggle } from '../../components/SmartScoreModeToggle';
 import { Player } from '../../components/Types';
 import { CircleHelp } from 'lucide-react';
 import { TopPicks } from '../../components/TopPicks';
+import { Pie } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const prod_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players';
 const dev_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players_dev';
@@ -78,6 +84,53 @@ export default function PlayerTables() {
     );
   }
 
+  // Calculate the overall percentage for the pie chart
+  const totalPercentage = sortedPlayers.tims1[0]?.stat + sortedPlayers.tims2[0]?.stat + sortedPlayers.tims3[0]?.stat 
+    - (sortedPlayers.tims1[0]?.stat * sortedPlayers.tims2[0]?.stat / 100)
+    - (sortedPlayers.tims1[0]?.stat * sortedPlayers.tims3[0]?.stat / 100)
+    - (sortedPlayers.tims2[0]?.stat * sortedPlayers.tims3[0]?.stat / 100)
+    + (sortedPlayers.tims1[0]?.stat * sortedPlayers.tims2[0]?.stat * sortedPlayers.tims3[0]?.stat / 10000);
+  
+  const chartData = {
+    labels: ['Percentage Someone Scores', 'Percentage No One Scores'], // Keep the same order for labels
+    datasets: [{
+      data: [totalPercentage, 100 - totalPercentage], // Keep the data in the correct order
+      backgroundColor: ['#fa265b', '#666666'], // Adjust the colors accordingly
+      borderColor: '#404040',
+      borderWidth: 1,
+    }],
+  };
+  
+  const chartOptions = {
+    plugins: {
+      legend: {
+        labels: {
+          color: '#666666', // Set the color of the legend labels
+          font: {
+            size: 18, // Increase font size for legend labels
+            weight: 'bold', // Make the legend labels bold
+          },
+        },
+      },
+      tooltip: {
+        bodyColor: '#666666',
+        titleFont: {
+          size: 16,
+          weight: 'bold',
+        },
+      },
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+    elements: {
+      arc: {
+        borderWidth: 1, // This defines the border width of each segment
+      },
+    },
+    cutout: '60%', // To make it look more like a doughnut (optional)
+    rotation: 180, // This will rotate the chart to align it top-bottom
+  };
+  
   return (
     <div>
       <div className="flex justify-center items-center mt-10 my-4 pb-8 mb-16 relative">
@@ -91,8 +144,6 @@ export default function PlayerTables() {
             <span className="absolute top-1/2 right-[-14px] -translate-y-1/2 w-0 h-0 border-t-[12px] border-b-[12px] border-l-[12px] border-transparent border-l-grey4"></span>
           </span>
         </a>
-
-
       </div>
 
       {showAllPlayers ? (
@@ -105,6 +156,11 @@ export default function PlayerTables() {
             player3={sortedPlayers.tims3[0]}
             title="Top Picks"
           ></TopPicks>
+          <div className="flex justify-center mb-8">
+          <div className="w-full md:w-1/3" style={{ height: '300px', position: 'relative' }}>
+            <Pie data={chartData} options={chartOptions} />
+          </div>
+          </div>
           <PlayerTable players={sortedPlayers.tims1} title="Tims Group 1" />
           <PlayerTable players={sortedPlayers.tims2} title="Tims Group 2" />
           <PlayerTable players={sortedPlayers.tims3} title="Tims Group 3" />
