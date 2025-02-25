@@ -2,11 +2,13 @@
 import { useState, useEffect } from 'react';
 import { PlayerTable } from '../../components/PlayerTable';
 import { SmartScoreModeToggle } from '../../components/SmartScoreModeToggle';
+import { ModeToggle } from '../../components/ModeToggle';
 import { Player } from '../../components/Types';
 import { CircleHelp } from 'lucide-react';
 import { TopPicks } from '../../components/TopPicks';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { useTheme } from 'next-themes';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -30,6 +32,8 @@ export default function PlayerTables() {
   });
   const [showAllPlayers, setShowAllPlayers] = useState(false);
   const [loading, setLoading] = useState(true);
+  const { theme } = useTheme();
+  const isDarkMode = theme === 'dark';
 
   useEffect(() => {
     const loadPlayers = async () => {
@@ -94,7 +98,7 @@ export default function PlayerTables() {
       `Percentage Someone Scores (${totalPercentage.toFixed(2)}%)`, 
       `Percentage No One Scores (${(100 - totalPercentage).toFixed(2)}%)`
     ],
-      datasets: [{
+    datasets: [{
       data: [totalPercentage, 100 - totalPercentage],
       backgroundColor: ['#fa265b', '#666666'],
       borderColor: '#404040',
@@ -106,17 +110,17 @@ export default function PlayerTables() {
     plugins: {
       legend: {
         labels: {
-          color: '#666666',
+          color: isDarkMode ? '#dbe1e8' : '#000000',
           font: {
-            size: 18,
+            size: 20,
             weight: 700,
           },
         },
       },
       tooltip: {
-        bodyColor: '#666666',
+        bodyColor: isDarkMode ? '#dbe1e8' : '#000000',
         titleFont: {
-          size: 16,
+          size: 18,
           weight: 700,
         },
       },
