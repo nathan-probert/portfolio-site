@@ -84,7 +84,6 @@ export default function PlayerTables() {
     );
   }
 
-<<<<<<< HEAD
   // Calculate the overall percentage for the pie chart
   const totalPercentage = sortedPlayers.tims1[0]?.stat + sortedPlayers.tims2[0]?.stat + sortedPlayers.tims3[0]?.stat 
     - (sortedPlayers.tims1[0]?.stat * sortedPlayers.tims2[0]?.stat / 100)
@@ -132,8 +131,6 @@ export default function PlayerTables() {
     rotation: 180, // This will rotate the chart to align it top-bottom
   };
   
-=======
->>>>>>> 04f185aeb20eec061967ca647d828be535eb7f92
   return (
     <div>
       <div className="flex justify-center items-center mt-10 my-4 pb-8 mb-16 relative">
