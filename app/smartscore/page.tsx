@@ -106,7 +106,7 @@ export default function PlayerTables() {
           color: '#666666',
           font: {
             size: 18,
-            weight: 'bold',
+            weight: 700,
           },
         },
       },
