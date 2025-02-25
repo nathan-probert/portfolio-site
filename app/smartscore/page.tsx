@@ -90,8 +90,11 @@ export default function PlayerTables() {
     + (sortedPlayers.tims1[0]?.stat * sortedPlayers.tims2[0]?.stat * sortedPlayers.tims3[0]?.stat / 10000);
   
   const chartData = {
-    labels: ['Percentage Someone Scores', 'Percentage No One Scores'],
-    datasets: [{
+    labels: [
+      `Percentage Someone Scores (${totalPercentage.toFixed(2)}%)`, 
+      `Percentage No One Scores (${(100 - totalPercentage).toFixed(2)}%)`
+    ],
+      datasets: [{
       data: [totalPercentage, 100 - totalPercentage],
       backgroundColor: ['#fa265b', '#666666'],
       borderColor: '#404040',
