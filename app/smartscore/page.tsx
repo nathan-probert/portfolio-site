@@ -111,7 +111,7 @@ export default function PlayerTables() {
         labels: {
           color: isDarkMode ? '#dbe1e8' : '#000000',
           font: {
-            size: 20,
+            size: 16,
             weight: 700,
           },
         },
