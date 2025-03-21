@@ -15,6 +15,7 @@ body {
   --grey2: #4d4d4d;
   --grey3: #b2becd;
   --grey4: #a7a7a7;
+  --grey5: #c6c6c6;
   --link: #0000EE;
 }
 
@@ -25,6 +26,7 @@ body {
   --grey2: #b2becd;
   --grey3: #212531;
   --grey4: #696969;
+  --grey5: #383838;
   --link: #3496ff;
 }
 
@@ -70,5 +72,6 @@ body {
 }
 
 html {
-  scroll-behavior: smooth; /* Enables smooth scrolling for hash links */
+  scroll-behavior: smooth;
+  /* Enables smooth scrolling for hash links */
 }

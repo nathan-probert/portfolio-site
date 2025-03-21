@@ -1,26 +1,62 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, SetStateAction } from 'react';
 import { PlayerTable } from '../../components/PlayerTable';
 import { SmartScoreModeToggle } from '../../components/SmartScoreModeToggle';
-import { Player } from '../../components/Types';
+import { Player, HistoryEntry } from '../../components/Types';
 import { CircleHelp } from 'lucide-react';
 import { TopPicks } from '../../components/TopPicks';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { useTheme } from 'next-themes';
+import { HistoryBar } from '../../components/HistoryBar';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const prod_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players';
-const dev_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players_dev';
+const prod_predictions_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players';
+const dev_predictions_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players_dev';
 
-// Example history function - this would be replaced with real data
-function getHistory(): number[] {
-  return [0, 1, 3, 2, 0, 1, 0]; // Example data: 0 = no score, 1-3 = number of scores
+const prod_history_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/historic_picks';
+const dev_history_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/historic_picks_dev';
+
+function groupHistoryByDay(history: Player[]): HistoryEntry[] {
+  const groups: { [date: string]: Player[] } = {};
+  const sortedHistory = history
+    .filter((player) => player.date && player.Scored !== undefined)
+    .sort((a, b) => {
+      const dateComparison = new Date(b.date).getTime() - new Date(a.date).getTime();
+      if (dateComparison !== 0) return dateComparison;
+
+      return (a.tims || 0) - (b.tims || 0);
+    });
+  console.log(sortedHistory);
+
+  let mostRecentDate = "";
+  sortedHistory.forEach((player) => {
+    const dateStr = new Date(player.date).toISOString().split("T")[0];
+    if (!mostRecentDate) {
+      mostRecentDate = dateStr;
+      return;
+    }
+    if (dateStr === mostRecentDate) return;
+
+    if (!groups[dateStr]) {
+      groups[dateStr] = [];
+    }
+    groups[dateStr].push(player);
+  });
+
+  // Sort dates ascending (oldest first) and take at most 7 days
+  const uniqueDates = Object.keys(groups).sort();
+  return uniqueDates.slice(-7).map((dateStr) => {
+    const players = groups[dateStr].slice(0, 3); // assume max three players per day
+    const scoredCount = players.filter((p) => p.Scored).length;
+    return { date: dateStr, players, scoredCount };
+  });
 }
 
-async function fetchPlayers(): Promise<Player[]> {
-  const res = await fetch(process.env.NODE_ENV === 'production' ? prod_url : dev_url);
+
+async function fetchPlayers(api_url: string): Promise<Player[]> {
+  const res = await fetch(api_url);
   if (!res.ok) {
     throw new Error('Failed to fetch players');
   }
@@ -34,17 +70,19 @@ export default function PlayerTables() {
     tims2: [],
     tims3: []
   });
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [showAllPlayers, setShowAllPlayers] = useState(false);
   const [loading, setLoading] = useState(true);
   const { theme } = useTheme();
   const isDarkMode = theme === 'dark';
-  const history = getHistory();
 
   useEffect(() => {
     const loadPlayers = async () => {
       try {
         setLoading(true);
-        const data = await fetchPlayers();
+        const data = await fetchPlayers(process.env.NODE_ENV === 'production' ? prod_predictions_url : dev_predictions_url);
+        const history = await fetchPlayers(process.env.NODE_ENV === 'production' ? prod_history_url : dev_history_url)
+        setHistory(groupHistoryByDay(history));
 
         // Multiply each player's stat by 100%
         const updatedData = data.map(player => ({
@@ -143,24 +181,6 @@ export default function PlayerTables() {
 
   return (
     <div>
-      {/* History Bar */}
-      <div className="flex flex-col items-center mt-6">
-        <div className="flex justify-center items-center gap-4 mb-6 relative">
-          {/* Background line */}
-          <div className={`absolute top-1/2 w-full h-1 bg-gray-300 ${isDarkMode ? 'bg-gray-600' : 'bg-gray-500'}`}></div>
-
-          {history.map((value, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center relative"
-            >
-              {value === 0 && <span className="text-3xl">💔</span>}
-              {value > 0 && <span className="text-3xl">🔥</span>}
-            </div>
-          ))}
-        </div>
-      </div>
-
       <div className="flex justify-center items-center mt-10 my-4 pb-8 mb-16 relative">
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <SmartScoreModeToggle onClick={handleToggleChange} />
@@ -178,6 +198,8 @@ export default function PlayerTables() {
         <PlayerTable players={sortedPlayers.all} title="All Players" />
       ) : (
         <>
+          <HistoryBar history={history} />
+
           <TopPicks
             player1={sortedPlayers.tims1[0]}
             player2={sortedPlayers.tims2[0]}
