@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, SetStateAction } from 'react';
+import { useState, useEffect } from 'react';
 import { PlayerTable } from '../../components/PlayerTable';
 import { SmartScoreModeToggle } from '../../components/SmartScoreModeToggle';
 import { Player, HistoryEntry } from '../../components/Types';
