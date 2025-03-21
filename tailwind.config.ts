@@ -14,13 +14,14 @@ const config: Config = {
         grey2: "var(--grey2)",
         grey3: "var(--grey3)",
         grey4: "var(--grey4)",
+        grey5: "var(--grey5)",
         link: "var(--link)",
         secondary: "#f215fa",
       },
       background: {
         DEFAULT: '#fa265b', // Light grey for light mode
         dark: '#fa265b',     // Grey for dark mode
-      },    
+      },
       keyframes: {
         "appear": {
           from: {

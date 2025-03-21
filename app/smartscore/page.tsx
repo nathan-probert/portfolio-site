@@ -2,20 +2,61 @@
 import { useState, useEffect } from 'react';
 import { PlayerTable } from '../../components/PlayerTable';
 import { SmartScoreModeToggle } from '../../components/SmartScoreModeToggle';
-import { Player } from '../../components/Types';
+import { Player, HistoryEntry } from '../../components/Types';
 import { CircleHelp } from 'lucide-react';
 import { TopPicks } from '../../components/TopPicks';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { useTheme } from 'next-themes';
+import { HistoryBar } from '../../components/HistoryBar';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const prod_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players';
-const dev_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players_dev';
+const prod_predictions_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players';
+const dev_predictions_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players_dev';
 
-async function fetchPlayers(): Promise<Player[]> {
-  const res = await fetch(process.env.NODE_ENV === 'production' ? prod_url : dev_url);
+const prod_history_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/historic_picks';
+const dev_history_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/historic_picks_dev';
+
+function groupHistoryByDay(history: Player[]): HistoryEntry[] {
+  const groups: { [date: string]: Player[] } = {};
+  const sortedHistory = history
+    .filter((player) => player.date && player.Scored !== undefined)
+    .sort((a, b) => {
+      const dateComparison = new Date(b.date).getTime() - new Date(a.date).getTime();
+      if (dateComparison !== 0) return dateComparison;
+
+      return (a.tims || 0) - (b.tims || 0);
+    });
+  console.log(sortedHistory);
+
+  let mostRecentDate = "";
+  sortedHistory.forEach((player) => {
+    const dateStr = new Date(player.date).toISOString().split("T")[0];
+    if (!mostRecentDate) {
+      mostRecentDate = dateStr;
+      return;
+    }
+    if (dateStr === mostRecentDate) return;
+
+    if (!groups[dateStr]) {
+      groups[dateStr] = [];
+    }
+    groups[dateStr].push(player);
+  });
+
+  // Sort dates ascending (oldest first) and take at most 7 days
+  const uniqueDates = Object.keys(groups).sort();
+  return uniqueDates.slice(-7).map((dateStr) => {
+    const players = groups[dateStr].slice(0, 3); // assume max three players per day
+    const scoredCount = players.filter((p) => p.Scored).length;
+    return { date: dateStr, players, scoredCount };
+  });
+}
+
+
+async function fetchPlayers(api_url: string): Promise<Player[]> {
+  const res = await fetch(api_url);
   if (!res.ok) {
     throw new Error('Failed to fetch players');
   }
@@ -29,6 +70,7 @@ export default function PlayerTables() {
     tims2: [],
     tims3: []
   });
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [showAllPlayers, setShowAllPlayers] = useState(false);
   const [loading, setLoading] = useState(true);
   const { theme } = useTheme();
@@ -38,7 +80,9 @@ export default function PlayerTables() {
     const loadPlayers = async () => {
       try {
         setLoading(true);
-        const data = await fetchPlayers();
+        const data = await fetchPlayers(process.env.NODE_ENV === 'production' ? prod_predictions_url : dev_predictions_url);
+        const history = await fetchPlayers(process.env.NODE_ENV === 'production' ? prod_history_url : dev_history_url)
+        setHistory(groupHistoryByDay(history));
 
         // Multiply each player's stat by 100%
         const updatedData = data.map(player => ({
@@ -154,12 +198,14 @@ export default function PlayerTables() {
         <PlayerTable players={sortedPlayers.all} title="All Players" />
       ) : (
         <>
+          <HistoryBar history={history} />
+
           <TopPicks
             player1={sortedPlayers.tims1[0]}
             player2={sortedPlayers.tims2[0]}
             player3={sortedPlayers.tims3[0]}
             title="Top Picks"
-          ></TopPicks>
+          />
           <div className="flex justify-center mb-8">
             <div className="w-full md:w-1/3" style={{ height: '300px', position: 'relative' }}>
               <Pie data={chartData} options={chartOptions} />
@@ -172,4 +218,4 @@ export default function PlayerTables() {
       )}
     </div>
   );
-}
+}  
