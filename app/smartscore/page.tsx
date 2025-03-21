@@ -14,6 +14,11 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const prod_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players';
 const dev_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players_dev';
 
+// Example history function - this would be replaced with real data
+function getHistory(): number[] {
+  return [0, 1, 3, 2, 0, 1, 0]; // Example data: 0 = no score, 1-3 = number of scores
+}
+
 async function fetchPlayers(): Promise<Player[]> {
   const res = await fetch(process.env.NODE_ENV === 'production' ? prod_url : dev_url);
   if (!res.ok) {
@@ -33,6 +38,7 @@ export default function PlayerTables() {
   const [loading, setLoading] = useState(true);
   const { theme } = useTheme();
   const isDarkMode = theme === 'dark';
+  const history = getHistory();
 
   useEffect(() => {
     const loadPlayers = async () => {
@@ -137,6 +143,24 @@ export default function PlayerTables() {
 
   return (
     <div>
+      {/* History Bar */}
+      <div className="flex flex-col items-center mt-6">
+        <div className="flex justify-center items-center gap-4 mb-6 relative">
+          {/* Background line */}
+          <div className={`absolute top-1/2 w-full h-1 bg-gray-300 ${isDarkMode ? 'bg-gray-600' : 'bg-gray-500'}`}></div>
+
+          {history.map((value, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-center relative"
+            >
+              {value === 0 && <span className="text-3xl">💔</span>}
+              {value > 0 && <span className="text-3xl">🔥</span>}
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="flex justify-center items-center mt-10 my-4 pb-8 mb-16 relative">
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <SmartScoreModeToggle onClick={handleToggleChange} />
@@ -159,7 +183,7 @@ export default function PlayerTables() {
             player2={sortedPlayers.tims2[0]}
             player3={sortedPlayers.tims3[0]}
             title="Top Picks"
-          ></TopPicks>
+          />
           <div className="flex justify-center mb-8">
             <div className="w-full md:w-1/3" style={{ height: '300px', position: 'relative' }}>
               <Pie data={chartData} options={chartOptions} />
@@ -172,4 +196,4 @@ export default function PlayerTables() {
       )}
     </div>
   );
-}
+}  
