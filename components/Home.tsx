@@ -2,7 +2,6 @@
 
 import { LeftIntro } from './LeftIntro';
 import { RightIntro } from './RightIntro';
-import { FileText } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
