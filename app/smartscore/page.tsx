@@ -1,14 +1,14 @@
 "use client";
 import { useState, useEffect } from 'react';
-import { PlayerTable } from '../../components/PlayerTable';
-import { SmartScoreModeToggle } from '../../components/SmartScoreModeToggle';
-import { Player, HistoryEntry } from '../../components/Types';
-import { CircleHelp } from 'lucide-react';
-import { TopPicks } from '../../components/TopPicks';
-import { Pie } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { useTheme } from 'next-themes';
-import { HistoryBar } from '../../components/HistoryBar';
+import { PlayerTable } from "@/components/PlayerTable";
+import { SmartScoreModeToggle } from "@/components/SmartScoreModeToggle";
+import { Player, HistoryEntry } from "@/components/Types";
+import { CircleHelp } from "lucide-react";
+import { TopPicks } from "@/components/TopPicks";
+import { Pie } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { useTheme } from "next-themes";
+import { HistoryBar } from "@/components/HistoryBar";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
