@@ -12,8 +12,7 @@ export function middleware(req: NextRequest) {
             url.pathname = '/smartscore';
         } else if (url.pathname === '/help') {
             // If it's '/help', treat it like a route on the main site, without the '/smartscore' prefix
-            url.pathname = `${url.pathname}`;
-
+            url.pathname = `/smartscore${url.pathname}`;
         } else {
             // For all other routes, strip the "/smartscore" part from the path to resolve assets correctly
             url.pathname = url.pathname.replace(/^\/smartscore/, '');

@@ -19,7 +19,7 @@ export function Header() {
 
                 <div className="flex items-center gap-8">
                     <NavButton href="https://nathanprobert.ca/home#projects" label="Projects" icon={Blocks} />
-                    <NavButton href="/home#work" label="Work" icon={BriefcaseBusinessIcon} />
+                    <NavButton href="https://nathanprobert.ca//home#work" label="Work" icon={BriefcaseBusinessIcon} />
                     {/* <NavButton href="/about" label="About Me" icon={CircleUserRound} /> */}
                     <div className="relative nav-icon">
                         <a href="https://smartscore.nathanprobert.ca">
