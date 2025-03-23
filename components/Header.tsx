@@ -22,7 +22,7 @@ export function Header() {
                     <NavButton href="/home#work" label="Work" icon={BriefcaseBusinessIcon} />
                     {/* <NavButton href="/about" label="About Me" icon={CircleUserRound} /> */}
                     <div className="relative nav-icon">
-                        <a href="/smartscore">
+                        <a href="https://smartscore.nathanprobert.ca">
                             <img
                                 src="/images/logo.jpg"
                                 alt="SmartScore App"
