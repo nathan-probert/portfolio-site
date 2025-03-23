@@ -20,7 +20,7 @@ const projects = [
             { name: 'Next.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
         ],
         githubLink: 'https://github.com/nathan-probert/smartScore',
-        projectLink: '/smartscore'
+        projectLink: 'https://smartscore.nathanprobert.ca'
     },
 
     {
