@@ -9,7 +9,7 @@ export function PlayerTable({ players, title }: PlayerTableProps) {
   if (!players || players.length === 0) {
     return <div>No players found</div>;
   }
-  
+
   const lastCharacterId = title ? title.slice(-1) : "default-id";
 
   return (
@@ -87,7 +87,7 @@ export function PlayerTable({ players, title }: PlayerTableProps) {
                 >
                   {player.stat.toFixed(2)}
                 </td>
-                <td className="px-2 py-2 md:text-xl text-sm border border-grey2 text-center">{player.team_name}</td>
+                <td className="px-2 py-2 md:text-lg text-xs border border-grey2 text-center">{player.team_name}</td>
                 <td className="px-2 py-2 md:text-xl text-sm border border-grey2 text-center">{player.five_gpg.toFixed(2)}</td>
                 <td className="px-2 py-2 md:text-xl text-sm border border-grey2 text-center">{player.gpg.toFixed(2)}</td>
                 <td className="px-2 py-2 md:text-xl text-sm border border-grey2 text-center">{player.hgpg.toFixed(2)}</td>
