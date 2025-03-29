@@ -108,10 +108,6 @@ export default function PlayerTables() {
         const tims2: Player[] = sortedAllPlayers.filter(player => Number(player.tims) === 2);
         const tims3: Player[] = sortedAllPlayers.filter(player => Number(player.tims) === 3);
 
-        for (let i = 0; i < sortedAllPlayers.length; i++) {
-          const player = sortedAllPlayers[i];
-        }
-
         // Set the sorted players and tims groups in the state
         setSortedPlayers({ all: sortedAllPlayers, tims1, tims2, tims3 });
       } catch (error) {
