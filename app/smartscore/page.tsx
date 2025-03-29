@@ -28,7 +28,6 @@ function groupHistoryByDay(history: Player[]): HistoryEntry[] {
 
       return (a.tims || 0) - (b.tims || 0);
     });
-  console.log(sortedHistory);
 
   let mostRecentDate = "";
   sortedHistory.forEach((player) => {
