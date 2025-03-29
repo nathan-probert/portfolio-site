@@ -10,7 +10,6 @@ const formatName = (name: string) => {
     return name;
 };
 
-
 export function HistoryBar({ history }: { history: HistoryEntry[] }) {
     return (
         <div className="flex flex-col items-center mt-6">

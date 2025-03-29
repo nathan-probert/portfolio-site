@@ -9,14 +9,17 @@ import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { useTheme } from "next-themes";
 import { HistoryBar } from "@/components/HistoryBar";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
+
+
+const SUPABASE_URL = "https://ftbnnnytottxvgmjwlip.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0Ym5ubnl0b3R0eHZnbWp3bGlwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDMwODE0OTAsImV4cCI6MjA1ODY1NzQ5MH0.bPs4H8KEJ4Akf81Uu5kD9xA0kZIMG1ZsVSlDDQDAmYs";
+
+// Initialize the Supabase client
+const supabase: SupabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
-const prod_predictions_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players';
-const dev_predictions_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/players_dev';
-
-const prod_history_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/historic_picks';
-const dev_history_url = 'https://x8ki-letl-twmt.n7.xano.io/api:OvqrJ0Ps/historic_picks_dev';
 
 function groupHistoryByDay(history: Player[]): HistoryEntry[] {
   const groups: { [date: string]: Player[] } = {};
@@ -47,19 +50,27 @@ function groupHistoryByDay(history: Player[]): HistoryEntry[] {
   // Sort dates ascending (oldest first) and take at most 7 days
   const uniqueDates = Object.keys(groups).sort();
   return uniqueDates.slice(-7).map((dateStr) => {
-    const players = groups[dateStr].slice(0, 3); // assume max three players per day
+    const players = groups[dateStr].slice(0, 3);
     const scoredCount = players.filter((p) => p.Scored).length;
     return { date: dateStr, players, scoredCount };
   });
 }
 
 
-async function fetchPlayers(api_url: string): Promise<Player[]> {
-  const res = await fetch(api_url);
-  if (!res.ok) {
-    throw new Error('Failed to fetch players');
+async function newFetchPlayers(table_name: string): Promise<Player[]> {
+  const { data, error } = await supabase.from(table_name).select('*');
+  if (error) {
+    console.error('Error fetching players:', error);
+    return [];
   }
-  return res.json();
+  if (!data) {
+    console.error('No players found');
+    return [];
+  }
+
+  const players: Player[] = data as Player[];
+
+  return players;
 }
 
 export default function PlayerTables() {
@@ -79,8 +90,8 @@ export default function PlayerTables() {
     const loadPlayers = async () => {
       try {
         setLoading(true);
-        const data = await fetchPlayers(process.env.NODE_ENV === 'production' ? prod_predictions_url : dev_predictions_url);
-        const history = await fetchPlayers(process.env.NODE_ENV === 'production' ? prod_history_url : dev_history_url)
+        const data = await newFetchPlayers(process.env.NODE_ENV === 'production' ? 'Picks-prod' : 'Picks-dev');
+        const history = await newFetchPlayers(process.env.NODE_ENV === 'production' ? 'Historic-Picks-prod' : 'Historic-Picks-dev');
         setHistory(groupHistoryByDay(history));
 
         // Multiply each player's stat by 100%
@@ -93,9 +104,9 @@ export default function PlayerTables() {
         const sortedAllPlayers = updatedData.sort((a, b) => b.stat - a.stat);
 
         // Create the tims groups from the sorted array
-        const tims1 = sortedAllPlayers.filter(player => player.tims === 1);
-        const tims2 = sortedAllPlayers.filter(player => player.tims === 2);
-        const tims3 = sortedAllPlayers.filter(player => player.tims === 3);
+        const tims1: Player[] = sortedAllPlayers.filter(player => Number(player.tims) === 1);
+        const tims2: Player[] = sortedAllPlayers.filter(player => Number(player.tims) === 2);
+        const tims3: Player[] = sortedAllPlayers.filter(player => Number(player.tims) === 3);
 
         // Set the sorted players and tims groups in the state
         setSortedPlayers({ all: sortedAllPlayers, tims1, tims2, tims3 });
