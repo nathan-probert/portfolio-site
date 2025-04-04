@@ -195,7 +195,7 @@ export default function PlayerTables() {
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <SmartScoreModeToggle onClick={handleToggleChange} />
         </div>
-        <a className="absolute right-10 group inline-block" href="/smartscore/help">
+        <a className="absolute right-10 group inline-block" href="/help">
           <CircleHelp className="mt-12" size="32" />
           <span className="absolute top-12 right-12 bg-grey4 text-foreground text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:inline">
             Need help?
