@@ -139,6 +139,14 @@ export default function PlayerTables() {
     );
   }
 
+  if (sortedPlayers.tims1.length === 0 && sortedPlayers.tims2.length === 0 && sortedPlayers.tims3.length === 0) {
+    return (
+      <div className="flex justify-center items-center px-4 text-center">
+        <p className="text-2xl md:text-5xl font-bold mt-20">All games have started today, check back tomorrow!</p>
+      </div>
+    );
+  }
+
   // Calculate the overall percentage for the pie chart
   const totalPercentage = sortedPlayers.tims1[0]?.stat + sortedPlayers.tims2[0]?.stat + sortedPlayers.tims3[0]?.stat
     - (sortedPlayers.tims1[0]?.stat * sortedPlayers.tims2[0]?.stat / 100)
