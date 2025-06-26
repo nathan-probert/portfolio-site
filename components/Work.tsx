@@ -7,8 +7,26 @@ const workExperiences = [
     {
         logo: '/images/evertz.png',
         company: 'Evertz.io',
+        title: 'Cloud Developer Intern',
+        focus: 'Cloud Infrastructure & Architecture',
+        timeline: 'May 2025 - September 2025',
+        description: 'Improved system reliability by automating failure recovery and reducing operational overhead across cloud services.',
+        blogLink: '',
+    },
+    {
+        logo: '/images/clearspring.png',
+        company: 'Clearspring Capital Partners',
+        title: 'Software Developer Contractor',
+        focus: 'Fintech Automation & Financial Workflows',
+        timeline: 'Mar 2025 - May 2026',
+        description: 'Developed an automated capital allocation tool to handle complex waterfall distribution rules, streamlining financial workflows and reducing manual errors for the accounting team.',
+    },
+    {
+        logo: '/images/evertz.png',
+        company: 'Evertz.io',
         title: 'Software Developer Intern',
         focus: 'Cloud Infrastructure & Architecture',
+        timeline: 'May 2024 - December 2024',
         description: 'Leveraged AWS services to build scalable and secure cloud infrastructure for new products and features.',
         blogLink: '/S24-Evertz',
     },
@@ -26,6 +44,7 @@ export function WorkComponent() {
                         company={work.company}
                         title={work.title}
                         focus={work.focus}
+                        timeline={work.timeline}
                         description={work.description}
                         blogLink={work.blogLink}
                     />
