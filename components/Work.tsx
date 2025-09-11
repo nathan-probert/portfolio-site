@@ -1,7 +1,6 @@
 import React from 'react';
 import { TopicHeader } from './TopicHeader';
 import { WorkCard } from './WorkCard';
-import { LogOut } from 'lucide-react';
 
 
 const workExperiences = [
