@@ -1,6 +1,7 @@
 import React from 'react';
 import { TopicHeader } from './TopicHeader';
 import { WorkCard } from './WorkCard';
+import { LogOut } from 'lucide-react';
 
 
 const workExperiences = [
@@ -11,7 +12,15 @@ const workExperiences = [
         focus: 'Cloud Infrastructure & Architecture',
         timeline: 'May 2025 - September 2025',
         description: 'Improved system reliability by automating failure recovery and reducing operational overhead across cloud services.',
-        blogLink: '',
+        blogLink: '/S25-Evertz',
+    },
+    {
+        logo: '/images/reservely.png',
+        company: 'Reservely',
+        title: 'Technical Founder',
+        focus: 'Full-Stack Development & System Architecture',
+        timeline: 'May 2025 - Present',
+        description: 'Co-founded a startup to develop a comprehensive reservation management platform, overseeing the full software development lifecycle from concept to deployment.',
     },
     {
         logo: '/images/clearspring.png',
