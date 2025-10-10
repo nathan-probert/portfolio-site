@@ -34,7 +34,7 @@ export function HistoryBar({ history }: { history: HistoryEntry[] }) {
                                     <div className="mb-1 font-bold text-center">{entry.date}</div>
                                     {entry.players.map((player) => (
                                         <div key={player.id || player.name} className="grid grid-cols-[auto_auto] items-center gap-2 sm:gap-4">
-                                            <span className="w-20 sm:w-24">{formatName(player.name)}:</span>
+                                            <span className="w-20 sm:w-26">{formatName(player.name)}:</span>
                                             <span className="text-right">{player.Scored ? '✅' : '❌'}</span>
                                         </div>
                                     ))}
