@@ -131,22 +131,6 @@ export default function PlayerTables() {
     );
   }
 
-  if (sortedPlayers.all.length === 0) {
-    return (
-      <div className="flex justify-center items-center px-4 text-center">
-        <p className="text-2xl md:text-5xl font-bold mt-20">No games today, check back tomorrow!</p>
-      </div>
-    );
-  }
-
-  if (sortedPlayers.tims1.length === 0 && sortedPlayers.tims2.length === 0 && sortedPlayers.tims3.length === 0) {
-    return (
-      <div className="flex justify-center items-center px-4 text-center">
-        <p className="text-2xl md:text-5xl font-bold mt-20">All games have started today, check back tomorrow!</p>
-      </div>
-    );
-  }
-
   // Calculate the overall percentage for the pie chart
   const totalPercentage = sortedPlayers.tims1[0]?.stat + sortedPlayers.tims2[0]?.stat + sortedPlayers.tims3[0]?.stat
     - (sortedPlayers.tims1[0]?.stat * sortedPlayers.tims2[0]?.stat / 100)
@@ -218,20 +202,32 @@ export default function PlayerTables() {
         <>
           <HistoryBar history={history} />
 
-          <TopPicks
-            player1={sortedPlayers.tims1[0]}
-            player2={sortedPlayers.tims2[0]}
-            player3={sortedPlayers.tims3[0]}
-            title="Top Picks"
-          />
-          <div className="flex justify-center mb-8">
-            <div className="w-full md:w-1/3" style={{ height: '300px', position: 'relative' }}>
-              <Pie data={chartData} options={chartOptions} />
+          {sortedPlayers.all.length === 0 ? (
+            <div className="flex justify-center items-center px-4 text-center">
+              <p className="text-2xl md:text-5xl font-bold mt-20">No games today, check back tomorrow!</p>
             </div>
-          </div>
-          <PlayerTable players={sortedPlayers.tims1} title="Tims Group 1" />
-          <PlayerTable players={sortedPlayers.tims2} title="Tims Group 2" />
-          <PlayerTable players={sortedPlayers.tims3} title="Tims Group 3" />
+          ) : sortedPlayers.tims1.length === 0 && sortedPlayers.tims2.length === 0 && sortedPlayers.tims3.length === 0 ? (
+            <div className="flex justify-center items-center px-4 text-center">
+              <p className="text-2xl md:text-5xl font-bold mt-20">All games have started today, check back tomorrow!</p>
+            </div>
+          ) : (
+            <>
+              <TopPicks
+                player1={sortedPlayers.tims1[0]}
+                player2={sortedPlayers.tims2[0]}
+                player3={sortedPlayers.tims3[0]}
+                title="Top Picks"
+              />
+              <div className="flex justify-center mb-8">
+                <div className="w-full md:w-1/3" style={{ height: '300px', position: 'relative' }}>
+                  <Pie data={chartData} options={chartOptions} />
+                </div>
+              </div>
+              <PlayerTable players={sortedPlayers.tims1} title="Tims Group 1" />
+              <PlayerTable players={sortedPlayers.tims2} title="Tims Group 2" />
+              <PlayerTable players={sortedPlayers.tims3} title="Tims Group 3" />
+            </>
+          )}
         </>
       )}
     </div>
