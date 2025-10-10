@@ -47,6 +47,16 @@ function groupHistoryByDay(history: Player[]): HistoryEntry[] {
     groups[dateStr].push(player);
   });
 
+  const today = new Date().toISOString().split("T")[0];
+  const excludeLatest = mostRecentDate === today;
+
+  // If not excluding, add the latest date to groups
+  if (!excludeLatest && mostRecentDate) {
+    groups[mostRecentDate] = sortedHistory
+      .filter(player => new Date(player.date).toISOString().split("T")[0] === mostRecentDate)
+      .slice(0, 3); // Take top 3 for consistency
+  }
+
   // Sort dates ascending (oldest first) and take at most 7 days
   const uniqueDates = Object.keys(groups).sort();
   return uniqueDates.slice(-7).map((dateStr) => {
