@@ -47,7 +47,7 @@ function groupHistoryByDay(history: Player[]): HistoryEntry[] {
     groups[dateStr].push(player);
   });
 
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date().getFullYear() + '-' + String(new Date().getMonth() + 1).padStart(2, '0') + '-' + String(new Date().getDate()).padStart(2, '0');
   const excludeLatest = mostRecentDate === today;
 
   // If not excluding, add the latest date to groups
