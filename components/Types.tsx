@@ -12,6 +12,8 @@ export interface Player {
   tgpg: number;
   otga: number;
   Scored?: boolean;
+  injury_status?: string;
+  injury_desc?: string;
 }
 
 

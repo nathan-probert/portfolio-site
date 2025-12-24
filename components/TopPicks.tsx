@@ -41,6 +41,14 @@ export function TopPicks({ player1, player2, player3, title }: PlayerTableProps)
                     <span className="md:hidden">
                       {`${player.name.split(' ')[0][0]}. ${player.name.split(' ').slice(-1)}`}
                     </span>
+                    {player.injury_status === 'INJURED' && (
+                      <span className="relative inline-block ml-3 group">
+                        <span className={`font-bold text-xl ${player.injury_desc === 'Day-To-Day' ? 'text-yellow-500' : 'text-red-600'}`}>⚠</span>
+                        <span className={`invisible group-hover:visible absolute text-white text-xs py-1 px-2 rounded -top-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-50 ${player.injury_desc === 'Day-To-Day' ? 'bg-yellow-500' : 'bg-red-600'}`}>
+                          {player.injury_desc}
+                        </span>
+                      </span>
+                    )}
                 </td>
                 <td className="px-0 py-1 border border-foreground text-center text-sm sm:text-lg">{player.stat.toFixed(2)}</td>
                 <td className="px-0 py-1 border border-foreground text-center text-sm sm:text-lg">{player.team_name}</td>
