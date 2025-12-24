@@ -223,9 +223,9 @@ export default function PlayerTables() {
           ) : (
             <>
               <TopPicks
-                player1={sortedPlayers.tims1[0]}
-                player2={sortedPlayers.tims2[0]}
-                player3={sortedPlayers.tims3[0]}
+                player1={sortedPlayers.tims1.find(p => p.injury_status !== 'INJURED') || sortedPlayers.tims1[0]}
+                player2={sortedPlayers.tims2.find(p => p.injury_status !== 'INJURED') || sortedPlayers.tims2[0]}
+                player3={sortedPlayers.tims3.find(p => p.injury_status !== 'INJURED') || sortedPlayers.tims3[0]}
                 title="Top Picks"
               />
               <div className="flex justify-center mb-8">
