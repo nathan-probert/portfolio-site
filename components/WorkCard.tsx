@@ -48,7 +48,7 @@ export function WorkCard({
     if (blogLink) {
         return (
             <a href={blogLink} rel="noopener noreferrer" className="block">
-                <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer bg-zinc-800">
                     {cardContent}
                 </div>
             </a>
@@ -56,7 +56,7 @@ export function WorkCard({
     }
 
     return (
-        <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 bg-zinc-800">
             {cardContent}
         </div>
     );
