@@ -24,7 +24,7 @@ export function ProjectCard({
     projectLink 
 }: Props) {
     return (
-        <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+        <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full bg-zinc-800">
             <div className="flex items-center">
                 {logo && ( // Only render logo if it's provided
                     <img
@@ -45,14 +45,18 @@ export function ProjectCard({
                             </div>
                             <img
                                 src={tech.logo}
-                                className={`w-[50px] h-auto ${tech.name === "pandas" ? 'filter dark:brightness-200' : ''}`}
+                                className={[
+                                    'w-[50px] h-auto',
+                                    tech.name === 'pandas' && 'filter dark:brightness-200',
+                                    tech.name === 'Gradle' && 'filter brightness-200',
+                                ].filter(Boolean).join(' ')}
                                 alt={`${tech.name} logo`}
                             />
                         </div>
                     </div>
                 ))}
             </div>
-            <div className="mt-auto flex justify-between items-center"> {/* Ensures buttons stay at the bottom */}
+            <div className="mt-auto flex justify-between items-center pt-1">
                 {githubLink && (
                     <Button 
                         variant="outline" 
@@ -77,5 +81,5 @@ export function ProjectCard({
                 )}
             </div>
         </div>
-    );
+        );
 }
