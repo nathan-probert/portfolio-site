@@ -5,6 +5,15 @@ import { WorkCard } from './WorkCard';
 
 const workExperiences = [
     {
+        logo: '/images/sap.png',
+        company: 'SAP',
+        title: 'Software Developer Intern',
+        focus: 'Cloud Infrastructure & Architecture',
+        timeline: 'January 2026 - May 2026',
+        description: 'Work with cloud database design in Golang and Kubernetes.',
+        blogLink: '',
+    },
+    {
         logo: '/images/evertz.png',
         company: 'Evertz.io',
         title: 'Cloud Developer Intern',
@@ -12,22 +21,6 @@ const workExperiences = [
         timeline: 'May 2025 - September 2025',
         description: 'Improved system reliability by automating failure recovery and reducing operational overhead across cloud services.',
         blogLink: '/S25-Evertz',
-    },
-    {
-        logo: '/images/reservely.png',
-        company: 'Reservely',
-        title: 'Technical Founder',
-        focus: 'Full-Stack Development & System Architecture',
-        timeline: 'May 2025 - Present',
-        description: 'Co-founded a startup to develop a comprehensive reservation management platform, overseeing the full software development lifecycle from concept to deployment.',
-    },
-    {
-        logo: '/images/clearspring.png',
-        company: 'Clearspring Capital Partners',
-        title: 'Software Developer Contractor',
-        focus: 'Fintech Automation & Financial Workflows',
-        timeline: 'Mar 2025 - May 2026',
-        description: 'Developed an automated capital allocation tool to handle complex waterfall distribution rules, streamlining financial workflows and reducing manual errors for the accounting team.',
     },
     {
         logo: '/images/evertz.png',
