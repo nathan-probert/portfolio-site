@@ -53,6 +53,7 @@ const projects = [
             { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
         ],
         githubLink: 'https://github.com/reservely-io/reservely',
+        projectLink: 'https://reservely.ca/for-businesses',
     },
     {
         logo: '/images/puckwatch.png',
@@ -79,7 +80,8 @@ const projects = [
             { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
             { name: 'Vercel', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg' },
         ],
-        githubLink: '',
+        githubLink: 'https://github.com/nathan-probert/am-i-cooked',
+        projectLink: 'https://am-i-cooked-zeta.vercel.app/',
     },
     {
         logo: '/images/wordle-solver-logo.jpg',
