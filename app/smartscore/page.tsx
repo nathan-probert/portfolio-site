@@ -230,9 +230,9 @@ export default function PlayerTables() {
         )}
         <a className="group inline-block absolute right-0 top-0" href="/help">
           <CircleHelp size="32" />
-          <span className="absolute top-12 right-12 bg-grey4 text-foreground text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:inline">
+          <span className="absolute left-1/2 top-12 -translate-x-1/2 bg-grey4 text-foreground text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:inline z-10">
             Need help?
-            <span className="absolute top-1/2 right-[-14px] -translate-y-1/2 w-0 h-0 border-t-[12px] border-b-[12px] border-l-[12px] border-transparent border-l-grey4"></span>
+            <span className="absolute left-1/2 -translate-x-1/2 -top-3 w-0 h-0 border-l-[8px] border-r-[8px] border-b-[8px] border-l-transparent border-r-transparent border-b-grey4"></span>
           </span>
         </a>
       </div>
