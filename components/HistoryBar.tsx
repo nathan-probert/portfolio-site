@@ -13,7 +13,7 @@ const formatName = (name: string) => {
 export function HistoryBar({ history }: { history: HistoryEntry[] }) {
     return (
         <div className="flex flex-col items-center mt-6">
-            <div className="relative w-full max-w-xs sm:max-w-md md:max-w-lg flex justify-center mb-6 px-2">
+            <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg flex justify-center mb-6 px-2">
                 {/* Background line */}
                 <div className={`absolute top-1/2 w-11/12 h-1 bg-grey5`}></div>
 

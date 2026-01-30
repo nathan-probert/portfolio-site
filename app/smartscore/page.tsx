@@ -93,6 +93,7 @@ export default function PlayerTables() {
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [showAllPlayers, setShowAllPlayers] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [pickAccuracy, setPickAccuracy] = useState<number | null>(null);
   const { theme } = useTheme();
   const isDarkMode = theme === 'dark';
 
@@ -120,6 +121,29 @@ export default function PlayerTables() {
 
         // Set the sorted players and tims groups in the state
         setSortedPlayers({ all: sortedAllPlayers, tims1, tims2, tims3 });
+
+        // Fetch current pick accuracy metric
+        const metricsTable = process.env.NODE_ENV === 'production' ? 'Metrics-prod' : 'Metrics-dev';
+
+
+        const { data: metricData, error: metricError, status, statusText } = await supabase
+          .from(metricsTable)
+          .select('*')
+          .eq('id', 'current_pick_accuracy')
+          .single();
+        if (metricError) {
+          console.error('[SmartScore] Error fetching pick accuracy metric:', {
+            table: metricsTable,
+            error: metricError,
+            status,
+            statusText,
+            metricData
+          });
+        } else if (metricData && typeof metricData.value === 'number') {
+          setPickAccuracy(metricData.value);
+        } else if (metricData && metricData.value) {
+          setPickAccuracy(Number(metricData.value));
+        }
       } catch (error) {
         console.error('Error fetching players:', error);
       } finally {
@@ -193,24 +217,35 @@ export default function PlayerTables() {
 
   return (
     <div>
-      <div className="flex justify-center items-center mt-10 my-4 pb-8 mb-16 relative">
-        <div className="absolute left-1/2 transform -translate-x-1/2">
-          <SmartScoreModeToggle onClick={handleToggleChange} />
-        </div>
-        <a className="absolute right-10 group inline-block" href="/help">
-          <CircleHelp className="mt-12" size="32" />
+
+      {/* Desktop: flex row with centered pick percentage; Mobile: stacked layout */}
+      {/* Help button and pick percentage horizontally aligned at the very top */}
+      <div className="w-full relative mt-6 md:mt-4 px-4 md:px-10" style={{ minHeight: '70px' }}>
+        {/* Centered pick percentage, absolutely positioned help button */}
+        {pickAccuracy !== null && (
+          <div className="flex flex-col items-center justify-center absolute left-1/2 top-0 transform -translate-x-1/2" style={{ width: 'max-content' }}>
+            <span className="text-3xl md:text-5xl font-bold text-pink-600 leading-tight">{pickAccuracy.toFixed(2)}%</span>
+            <div className="text-lg md:text-2xl text-gray-500 font-medium leading-tight text-center">SmartScore's Current Pick Percentage</div>
+          </div>
+        )}
+        <a className="group inline-block absolute right-0 top-0" href="/help">
+          <CircleHelp size="32" />
           <span className="absolute top-12 right-12 bg-grey4 text-foreground text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:inline">
             Need help?
             <span className="absolute top-1/2 right-[-14px] -translate-y-1/2 w-0 h-0 border-t-[12px] border-b-[12px] border-l-[12px] border-transparent border-l-grey4"></span>
           </span>
         </a>
       </div>
-
       {showAllPlayers ? (
-        <PlayerTable players={sortedPlayers.all} title="All Players" />
+        <>
+          <PlayerTable players={sortedPlayers.all} title="All Players" />
+        </>
       ) : (
         <>
           <HistoryBar history={history} />
+          <div className="w-full flex justify-center my-6">
+            <div className="w-full max-w-3xl h-1 bg-gray-700 rounded" />
+          </div>
 
           {sortedPlayers.all.length === 0 ? (
             <div className="flex justify-center items-center px-4 text-center">
@@ -228,10 +263,13 @@ export default function PlayerTables() {
                 player3={sortedPlayers.tims3.find(p => p.injury_status !== 'INJURED') || sortedPlayers.tims3[0]}
                 title="Top Picks"
               />
-              <div className="flex justify-center mb-8">
+              <div className="flex flex-col items-center mb-8">
                 <div className="w-full md:w-1/3" style={{ height: '300px', position: 'relative' }}>
                   <Pie data={chartData} options={chartOptions} />
                 </div>
+              </div>
+              <div className="w-full flex justify-center my-6">
+                <div className="w-full max-w-3xl h-1 bg-gray-700 rounded" />
               </div>
               <PlayerTable players={sortedPlayers.tims1} title="Tims Group 1" />
               <PlayerTable players={sortedPlayers.tims2} title="Tims Group 2" />
@@ -240,6 +278,10 @@ export default function PlayerTables() {
           )}
         </>
       )}
+      {/* Always show the toggle button at the bottom */}
+      <div className="flex justify-center mb-24">
+        <SmartScoreModeToggle onClick={handleToggleChange} />
+      </div>
     </div>
   );
 }  

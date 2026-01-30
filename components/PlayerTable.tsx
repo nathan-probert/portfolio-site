@@ -82,9 +82,9 @@ export function PlayerTable({ players, title }: PlayerTableProps) {
                     </span>
                   </a>
                   {player.injury_status === 'INJURED' && (
-                    <span className="relative inline-block ml-3 group">
+                    <span className="relative inline-block ml-2 mr-1 group">
                       <span className={`font-bold text-xl ${player.injury_desc === 'Day-To-Day' ? 'text-yellow-500' : 'text-red-500'}`}>⚠</span>
-                      <span className={`invisible group-hover:visible absolute text-white text-s py-1 px-2 rounded -top-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-50 ${player.injury_desc === 'Day-To-Day' ? 'bg-yellow-500' : 'bg-red-500'}`}>
+                      <span className={`invisible group-hover:visible absolute text-white text-s py-1 px-2 rounded -top-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-50 ${player.injury_desc === 'Day-To-Day' ? 'bg-yellow-600' : 'bg-red-500'}`}>
                         {player.injury_desc}
                       </span>
                     </span>
