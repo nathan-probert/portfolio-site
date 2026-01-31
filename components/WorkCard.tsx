@@ -8,14 +8,14 @@ type Props = {
     blogLink?: string;
 };
 
-export function WorkCard({ 
-    logo, 
+export function WorkCard({
+    logo,
     company,
-    title, 
+    title,
     focus,
     timeline,
-    description, 
-    blogLink, 
+    description,
+    blogLink,
 }: Props) {
     const cardContent = (
         <>
@@ -48,7 +48,7 @@ export function WorkCard({
     if (blogLink) {
         return (
             <a href={blogLink} rel="noopener noreferrer" className="block">
-                <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer bg-zinc-800">
+                <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer bg-card">
                     {cardContent}
                 </div>
             </a>
@@ -56,7 +56,7 @@ export function WorkCard({
     }
 
     return (
-        <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 bg-zinc-800">
+        <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 bg-card">
             {cardContent}
         </div>
     );

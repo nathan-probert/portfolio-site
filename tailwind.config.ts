@@ -9,7 +9,7 @@ const config: Config = {
       colors: {
         background: "var(--bg)",
         foreground: "var(--fg)",
-        primary: "#fa265b",
+        primary: "#C71E76",
         grey: "var(--grey)",
         grey2: "var(--grey2)",
         grey3: "var(--grey3)",
@@ -17,6 +17,7 @@ const config: Config = {
         grey5: "var(--grey5)",
         link: "var(--link)",
         secondary: "#f215fa",
+        card: "var(--card-bg)", // Custom card background color
       },
       background: {
         DEFAULT: '#fa265b', // Light grey for light mode

@@ -249,11 +249,11 @@ export default function PlayerTables() {
 
           {sortedPlayers.all.length === 0 ? (
             <div className="flex justify-center items-center px-4 text-center">
-              <p className="text-2xl md:text-5xl font-bold mt-20">No games today, check back tomorrow!</p>
+              <p className="text-2xl md:text-5xl font-bold mt-10 mb-10">No games today, check back tomorrow!</p>
             </div>
           ) : sortedPlayers.tims1.length === 0 && sortedPlayers.tims2.length === 0 && sortedPlayers.tims3.length === 0 ? (
             <div className="flex justify-center items-center px-4 text-center">
-              <p className="text-2xl md:text-5xl font-bold mt-20">All games have started today, check back tomorrow!</p>
+              <p className="text-2xl md:text-5xl font-bold mt-10 mb-10">All games have started today, check back tomorrow!</p>
             </div>
           ) : (
             <>

@@ -17,6 +17,7 @@ body {
   --grey4: #a7a7a7;
   --grey5: #c6c6c6;
   --link: #0000EE;
+  --card-bg: #b9b9bb;
 }
 
 :root[class="dark"] {
@@ -28,6 +29,7 @@ body {
   --grey4: #696969;
   --grey5: #383838;
   --link: #3496ff;
+  --card-bg: #27272a;
 }
 
 @layer utilities {

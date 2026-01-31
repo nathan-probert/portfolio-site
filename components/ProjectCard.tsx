@@ -15,16 +15,16 @@ type Props = {
     projectLink?: string;
 };
 
-export function ProjectCard({ 
-    logo, 
-    title, 
-    description, 
-    technologies, 
-    githubLink, 
-    projectLink 
+export function ProjectCard({
+    logo,
+    title,
+    description,
+    technologies,
+    githubLink,
+    projectLink
 }: Props) {
     return (
-        <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full bg-zinc-800">
+        <div className="border border-foreground rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full bg-card">
             <div className="flex items-center">
                 {logo && ( // Only render logo if it's provided
                     <img
@@ -58,9 +58,9 @@ export function ProjectCard({
             </div>
             <div className="mt-auto flex justify-between items-center pt-1">
                 {githubLink && (
-                    <Button 
-                        variant="outline" 
-                        asChild 
+                    <Button
+                        variant="outline"
+                        asChild
                         className="transition-transform transform hover:scale-105"
                     >
                         <Link href={githubLink} target="_blank">
@@ -69,9 +69,9 @@ export function ProjectCard({
                     </Button>
                 )}
                 {projectLink && (
-                    <Button 
+                    <Button
                         variant="default"
-                        asChild 
+                        asChild
                         className="ml-auto transition-transform transform hover:scale-105"
                     >
                         <Link href={projectLink} target="_blank">
@@ -81,5 +81,5 @@ export function ProjectCard({
                 )}
             </div>
         </div>
-        );
+    );
 }
