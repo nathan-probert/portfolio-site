@@ -3,7 +3,7 @@ export const metadata = {
     title: 'W26 - SAP',
 }
 
-export default function S25() {
+export default function W26() {
     return (
         <div className="max-w-4xl mx-auto my-3 p-8 relative">
             <img
@@ -24,6 +24,7 @@ export default function S25() {
                 </p>
             </section>
             <section className="mb-6">
+                <h2 className="text-2xl font-semibold mb-4 text-grey2 pb-1 border-b border-grey2">Information About SAP</h2>
                 <p className="">
                     &emsp;SAP is a global enterprise software company headquartered in Walldorf, Germany, known for developing solutions that help organizations manage business operations and customer relationships. Its products are widely used across industries to support areas such as data management, analytics, and cloud-based enterprise resource planning (ERP), serving customers around the world.
                     <br />
@@ -32,8 +33,8 @@ export default function S25() {
                 </p>
                 <br />
                 <img
-                    src="/images/guelph-sap.jpeg"
-                    alt="Co-op experience"
+                    src="/images/sap-building.jpg"
+                    alt="SAP Building"
                     width={800}
                     height={500}
                     className="w-full h-auto"
@@ -53,6 +54,13 @@ export default function S25() {
                         <strong>Development and optimization of large-scale stress tests</strong>, where I simulated 400-pod Kubernetes scenarios and reduced execution time from 10 minutes to under 3, improving testing efficiency and system validation.
                     </li>
                 </ul>
+                <img
+                    src="/images/guelph-sap.jpeg"
+                    alt="Co-op experience"
+                    width={800}
+                    height={500}
+                    className="w-full h-auto"
+                />
             </section>
             <section className="mb-6">
                 <h2 className="text-2xl font-semibold mb-4 text-grey2 pb-1 border-b border-grey2">Goals</h2>
@@ -83,13 +91,29 @@ export default function S25() {
                     &emsp;I would like to thank my team at SAP for their guidance, support, and collaboration throughout the term. Their feedback, mentorship, and willingness to share knowledge played a significant role in my growth and success during this internship.
                 </p>
             </section>
-            <img
-                src="/images/sap-building.jpg"
-                alt="SAP Building"
-                width={800}
-                height={500}
-                className="w-full h-auto"
-            />
+            <div className="flex flex-row justify-center gap-6 mt-4 mb-6">
+                <img
+                    src="/images/sap-lego.jpg"
+                    alt="SAP Lego Set"
+                    width={260}
+                    height={146}
+                    className="rounded shadow-lg"
+                />
+                <img
+                    src="/images/sap-welcome-kit.jpg"
+                    alt="SAP Welcome Kit"
+                    width={260}
+                    height={146}
+                    className="rounded shadow-lg"
+                />
+                <img
+                    src="/images/sap-mario.jpg"
+                    alt="SAP Mario"
+                    width={260}
+                    height={146}
+                    className="rounded shadow-lg"
+                />
+            </div>
             <footer className="mt-6 text-right text-sm text-grey2 pb-1">
                 <p>Written by: Nathan Probert</p>
             </footer>

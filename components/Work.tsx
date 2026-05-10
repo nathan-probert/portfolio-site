@@ -11,7 +11,7 @@ const workExperiences = [
         focus: 'Cloud Infrastructure & Architecture',
         timeline: 'January 2026 - May 2026',
         description: 'Work with cloud database design in Golang and Kubernetes.',
-        blogLink: '',
+        blogLink: '/W26-SAP',
     },
     {
         logo: '/images/evertz.png',
