@@ -55,7 +55,7 @@ export default function W26() {
                     </li>
                 </ul>
                 <img
-                    src="/images/guelph-sap.jpeg"
+                    src="/images/guelph-sap.png"
                     alt="Co-op experience"
                     width={800}
                     height={500}
