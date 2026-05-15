@@ -36,7 +36,7 @@ export function WorkCard({
                     </h3>
                 </div>
                 <div className="ml-4 mb-4 flex-shrink-0 min-w-[140px]">
-                    <span className="text-sm text-gray-500 font-medium whitespace-nowrap">
+                    <span className="text-sm font-medium whitespace-nowrap">
                         {timeline}
                     </span>
                 </div>
