@@ -5,30 +5,43 @@ import { WorkCard } from './WorkCard';
 
 const workExperiences = [
     {
+        logo: '/images/hubspot.png',
+        company: 'HubSpot',
+        title: 'Software Engineer Intern',
+        focus: 'Developer Infrastructure & Security',
+        timeline: 'May 2026 - August 2026',
+        description:
+            'Incoming intern on the Developer Infrastructure & Security team, working on backend systems that support platform security and internal tooling.',
+        blogLink: '',
+    },
+    {
         logo: '/images/sap.png',
         company: 'SAP',
         title: 'Software Developer Intern',
-        focus: 'Cloud Infrastructure & Architecture',
+        focus: 'Cloud Infrastructure & Developer Tools',
         timeline: 'January 2026 - May 2026',
-        description: 'Work with cloud database design in Golang and Kubernetes.',
+        description:
+            'Built Kubernetes stress-testing systems and internal MCP integrations to improve CI reliability and enable AI-assisted debugging workflows.',
         blogLink: '/W26-SAP',
     },
     {
         logo: '/images/evertz.png',
         company: 'Evertz.io',
-        title: 'Cloud Developer Intern',
-        focus: 'Cloud Infrastructure & Architecture',
+        title: 'Software Developer Intern',
+        focus: 'Distributed Systems & Reliability',
         timeline: 'May 2025 - September 2025',
-        description: 'Improved system reliability by automating failure recovery and reducing operational overhead across cloud services.',
+        description:
+            'Improved cloud system reliability through automated failure recovery and reduced operational overhead across distributed services.',
         blogLink: '/S25-Evertz',
     },
     {
         logo: '/images/evertz.png',
         company: 'Evertz.io',
         title: 'Software Developer Intern',
-        focus: 'Cloud Infrastructure & Architecture',
+        focus: 'CI/CD Systems & Cloud Platform Engineering',
         timeline: 'May 2024 - December 2024',
-        description: 'Leveraged AWS services to build scalable and secure cloud infrastructure for new products and features.',
+        description:
+            'Built and optimized cloud tooling and CI/CD pipelines to improve deployment speed, reliability, and operational security.',
         blogLink: '/S24-Evertz',
     },
 ];
